@@ -1,4 +1,4 @@
-package org.android.turnaround.presentation.main
+package org.android.turnaround
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
