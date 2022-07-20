@@ -2,20 +2,17 @@ package org.android.turnaround.presentation.login
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
+import dagger.hilt.android.AndroidEntryPoint
 import org.android.turnaround.R
 import org.android.turnaround.databinding.FragmentLoginBinding
 import org.android.turnaround.presentation.base.BaseFragment
 
-
+@AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login) {
 
     private val loginViewModel: LoginViewModel by viewModels()
@@ -42,13 +39,19 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                         }
 
                         // 카카오톡에 연결된 카카오계정이 없는 경우, 카카오계정으로 로그인 시도
-                        UserApiClient.instance.loginWithKakaoAccount(requireContext(), callback = loginViewModel.callback)
+                        UserApiClient.instance.loginWithKakaoAccount(
+                            requireContext(),
+                            callback = loginViewModel.callback
+                        )
                     } else if (token != null) {
                         Log.i(TAG, "카카오톡으로 로그인 성공 ${token.accessToken}")
                     }
                 }
             } else {
-                UserApiClient.instance.loginWithKakaoAccount(requireContext(), callback = loginViewModel.callback)
+                UserApiClient.instance.loginWithKakaoAccount(
+                    requireContext(),
+                    callback = loginViewModel.callback
+                )
             }
         }
     }

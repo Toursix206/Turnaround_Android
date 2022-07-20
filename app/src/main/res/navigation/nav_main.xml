@@ -10,4 +10,8 @@
         android:name="org.android.turnaround.presentation.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="org.android.turnaround.presentation.login.LoginFragment"
+        android:label="LoginFragment" />
 </navigation>
