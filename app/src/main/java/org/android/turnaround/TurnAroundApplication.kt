@@ -2,7 +2,9 @@ package org.android.turnaround
 
 import android.app.Application
 import com.kakao.sdk.common.KakaoSdk
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class TurnAroundApplication : Application() {
 
     override fun onCreate() {
