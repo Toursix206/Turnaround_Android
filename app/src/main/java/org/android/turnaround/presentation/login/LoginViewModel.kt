@@ -1,10 +1,15 @@
 package org.android.turnaround.presentation.login
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.kakao.sdk.auth.model.OAuthToken
 
 class LoginViewModel: ViewModel() {
+
+    var address = MutableLiveData<String>()
+    var addressDetail = MutableLiveData<String>("")
+    var addressPw = MutableLiveData("")
 
     // 카카오계정으로 로그인 공통 callback 구성
 // 카카오톡으로 로그인 할 수 없어 카카오계정으로 로그인할 경우 사용됨
