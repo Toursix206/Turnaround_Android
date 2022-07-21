@@ -9,6 +9,7 @@ plugins {
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def native_app_key = properties.get('NATIVE.APP.KEY')
 
 android {
     compileSdk 32
@@ -22,7 +23,8 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "NATIVE_APP_KEY", properties["NATIVE_APP_KEY"]
+        buildConfigField "String", "APP_KEY", properties['APP.KEY']
+        manifestPlaceholders = [NATIVE_APP_KEY : native_app_key]
     }
 
     buildTypes {
