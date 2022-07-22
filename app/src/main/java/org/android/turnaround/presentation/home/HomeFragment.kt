@@ -1,7 +1,11 @@
 package org.android.turnaround.presentation.home
 
+import android.content.Context
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.View
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import com.google.android.material.tabs.TabLayoutMediator
 import org.android.turnaround.R
 import org.android.turnaround.data.model.Banner
@@ -10,8 +14,12 @@ import org.android.turnaround.data.model.Work
 import org.android.turnaround.databinding.FragmentHomeBinding
 import org.android.turnaround.presentation.base.BaseFragment
 
-
 class HomeFragment :  BaseFragment<FragmentHomeBinding>(R.layout.fragment_home)  {
+    private lateinit var callback: OnBackPressedCallback
+
+    private final val FINISH_INTERVAL_TIME: Long = 2000
+    private var backPressedTime: Long = 0
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -57,6 +65,31 @@ class HomeFragment :  BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) 
             submitList(bannerArr)
         }
         TabLayoutMediator(binding.tabBanner, binding.vpBanner) { _, _ -> }.attach()
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        // 뒤로가기 한 번 누르면 메인 화면으로 이동, 2초 내에 한 번 더 누르면 종료
+        callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if(parentFragmentManager.backStackEntryCount == 0) {
+                    val tempTime = System.currentTimeMillis()
+                    val intervalTime = tempTime - backPressedTime
+                    if (intervalTime in 0..FINISH_INTERVAL_TIME) requireActivity().finish()
+                    else {
+                        backPressedTime = tempTime
+                        binding.scrollView.smoothScrollTo(0, binding.toolbar.top)
+                        return
+                    }
+                }
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this@HomeFragment, callback)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        callback.remove()
     }
 
 }
