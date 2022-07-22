@@ -1,11 +1,14 @@
 package org.android.turnaround.presentation.home
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import org.android.turnaround.R
 import org.android.turnaround.data.model.Banner
@@ -14,10 +17,11 @@ import org.android.turnaround.data.model.Work
 import org.android.turnaround.databinding.FragmentHomeBinding
 import org.android.turnaround.presentation.base.BaseFragment
 
+const val FINISH_INTERVAL_TIME: Long = 2000
+
 class HomeFragment :  BaseFragment<FragmentHomeBinding>(R.layout.fragment_home)  {
     private lateinit var callback: OnBackPressedCallback
 
-    private final val FINISH_INTERVAL_TIME: Long = 2000
     private var backPressedTime: Long = 0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,6 +30,8 @@ class HomeFragment :  BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) 
         setWorkAdapter()
         setKitAdapter()
         setBannerAdapter()
+
+        setMainTabListener()
     }
 
     private fun setWorkAdapter() {
@@ -65,6 +71,24 @@ class HomeFragment :  BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) 
             submitList(bannerArr)
         }
         TabLayoutMediator(binding.tabBanner, binding.vpBanner) { _, _ -> }.attach()
+    }
+
+    private fun setMainTabListener() {
+        val blue = "#1371ff"
+        val purple = "#9747FF"
+        val gray = "#dddddd"
+
+        binding.tabMain.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                val selected = binding.tabMain.selectedTabPosition
+                binding.tab1.setTextColor(Color.parseColor(if(selected == 0) blue else gray))
+                binding.tab11.setTextColor(Color.parseColor(if(selected == 0) blue else gray))
+                binding.tab2.setTextColor(Color.parseColor(if(selected == 0) gray else purple))
+                binding.tab21.setTextColor(Color.parseColor(if(selected == 0) gray else purple))
+            }
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
     }
 
     override fun onAttach(context: Context) {
