@@ -4,9 +4,8 @@ import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import android.view.KeyEvent
 import android.view.View
-import android.widget.Toast
+import android.view.ViewTreeObserver.OnScrollChangedListener
 import androidx.activity.OnBackPressedCallback
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -16,6 +15,8 @@ import org.android.turnaround.data.model.Kit
 import org.android.turnaround.data.model.Work
 import org.android.turnaround.databinding.FragmentHomeBinding
 import org.android.turnaround.presentation.base.BaseFragment
+import kotlin.math.max
+
 
 const val FINISH_INTERVAL_TIME: Long = 2000
 
@@ -30,7 +31,7 @@ class HomeFragment :  BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) 
         setWorkAdapter()
         setKitAdapter()
         setBannerAdapter()
-
+        setBtnCategory()
         setMainTabListener()
     }
 
@@ -89,6 +90,16 @@ class HomeFragment :  BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) 
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
+    }
+
+    private fun setBtnCategory() {
+        val arrCategory = resources.getStringArray(R.array.home_category_arr)
+        var clickCount = 0
+        val maxCount = arrCategory.size - 1
+        binding.btnCategory.setOnClickListener {
+            if (clickCount == maxCount) clickCount = 0
+            binding.tvCategoryKor.text = arrCategory[clickCount++]
+        }
     }
 
     override fun onAttach(context: Context) {
