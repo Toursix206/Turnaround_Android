@@ -1,60 +1,62 @@
 package org.android.turnaround.presentation.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import com.google.android.material.tabs.TabLayoutMediator
 import org.android.turnaround.R
+import org.android.turnaround.data.model.Banner
+import org.android.turnaround.data.model.Kit
+import org.android.turnaround.data.model.Work
+import org.android.turnaround.databinding.FragmentHomeBinding
+import org.android.turnaround.presentation.base.BaseFragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class HomeFragment :  BaseFragment<FragmentHomeBinding>(R.layout.fragment_home)  {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        setWorkAdapter()
+        setKitAdapter()
+        setBannerAdapter()
+    }
+
+    private fun setWorkAdapter() {
+        val workArr = arrayListOf(
+            Work("곰팡이 청소1", "20:15:33"),
+            Work("곰팡이 청소2", "20:15:33"),
+            Work("곰팡이 청소3", "20:15:33"),
+            Work("곰팡이 청소4", "20:15:33")
+        )
+        binding.rvWork.adapter = WorkAdapter().apply {
+            submitList(workArr)
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    private fun setKitAdapter() {
+        val kitUrl = "https://user-images.githubusercontent.com/61674991/180229556-0cb49e88-22ea-40ca-8b4e-bfb1e07c3894.png"
+        val kitArr = arrayListOf(
+            Kit("화장실", "팡이 팡이\n곰팡이", kitUrl),
+            Kit("화장실", "팡이 팡이\n곰팡이", kitUrl),
+            Kit("화장실", "팡이 팡이\n곰팡이", kitUrl),
+            Kit("화장실", "팡이 팡이\n곰팡이", kitUrl)
+        )
+        binding.vpKit.adapter = KitAdapter().apply {
+            submitList(kitArr)
+        }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun setBannerAdapter() {
+        val url = "https://user-images.githubusercontent.com/61674991/180220893-4fde51de-e8e9-4ea9-9f03-4bbe66e7281a.png"
+        val bannerArr = arrayListOf(
+            Banner(url, "진행중 |  2022.05.01~2023.05.01"),
+            Banner(url, "진행중 |  2022.05.01~2023.05.01"),
+            Banner(url, "진행중 |  2022.05.01~2023.05.01"),
+            Banner(url, "진행중 |  2022.05.01~2023.05.01")
+        )
+        binding.vpBanner.adapter = BannerAdapter().apply {
+            submitList(bannerArr)
+        }
+        TabLayoutMediator(binding.tabBanner, binding.vpBanner) { _, _ -> }.attach()
     }
+
 }
