@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="work"
+            type="org.android.turnaround.data.model.Work" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="100dp"
+            android:layout_height="66dp"
+            android:background="@drawable/bg_gray_r20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingHorizontal="6dp"
+            android:text="@{work.label}"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@id/view"
+            app:layout_constraintStart_toStartOf="@id/view"
+            app:layout_constraintTop_toTopOf="@id/view"
+            tools:text="팡이 팡이 곰팡이이" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:maxLines="1"
+            android:paddingHorizontal="6dp"
+            android:text="@{work.time}"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@id/view"
+            app:layout_constraintStart_toStartOf="@id/view"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:text="0:05:20" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

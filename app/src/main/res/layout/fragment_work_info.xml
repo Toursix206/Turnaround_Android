@@ -10,19 +10,17 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.login.LoginFragment">
+        tools:context=".presentation.detail.WorkInfoFragment">
 
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_kakao_login"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:text="카카오 로그인"
-            android:layout_marginHorizontal="20dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_work"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_work" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

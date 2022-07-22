@@ -30,9 +30,6 @@
             </intent-filter>
         </activity>
 
-        <meta-data
-            android:name="com.kakao.sdk.auth"
-            android:value="@{NATIVE_APP_KEY}" />
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
@@ -45,10 +42,9 @@
                 <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
                 <data
                     android:host="oauth"
-                    android:scheme="@{com.kakao.sdk.auth}" />
+                    android:scheme="kakao${NATIVE_APP_KEY}" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

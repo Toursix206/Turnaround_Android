@@ -9,14 +9,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.android.turnaround.data.model.Work
-import org.android.turnaround.databinding.ItemWorkBinding
+import org.android.turnaround.databinding.ItemWorkHomeBinding
 
 // Filterable
 class WorkAdapter: ListAdapter<Work, WorkAdapter.WorkViewHolder>(WorkDiffCallback()) {
-    private lateinit var binding: ItemWorkBinding
+    private lateinit var binding: ItemWorkHomeBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WorkViewHolder {
-        binding = ItemWorkBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding = ItemWorkHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return WorkViewHolder(binding)
     }
 
@@ -24,7 +24,7 @@ class WorkAdapter: ListAdapter<Work, WorkAdapter.WorkViewHolder>(WorkDiffCallbac
         holder.bind(getItem(position))
     }
 
-    inner class WorkViewHolder(private val binding: ItemWorkBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class WorkViewHolder(private val binding: ItemWorkHomeBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(work: Work) {
             binding.work = work
             binding.executePendingBindings()
