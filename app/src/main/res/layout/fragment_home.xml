@@ -177,21 +177,41 @@
                 app:layout_constraintStart_toStartOf="@id/tab2"
                 app:layout_constraintTop_toBottomOf="@id/tab2" />
 
-            <TextView
-                android:id="@+id/tv_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <View
+                android:id="@+id/btn_category"
+                android:layout_width="100dp"
+                android:layout_height="28dp"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="14dp"
                 android:background="@drawable/bg_black_r10"
-                android:paddingHorizontal="24dp"
-                android:paddingVertical="6dp"
-                android:text="카테고리"
-                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="@id/tab_sub"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tab_sub"
-                tools:text="전체" />
+                app:layout_constraintTop_toTopOf="@id/tab_sub" />
+
+            <TextView
+                android:id="@+id/tv_category_eng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:text="CATEGORY"
+                android:textColor="@color/white"
+                android:textSize="5sp"
+                app:layout_constraintBottom_toBottomOf="@id/btn_category"
+                app:layout_constraintStart_toStartOf="@id/btn_category"
+                app:layout_constraintTop_toTopOf="@id/btn_category" />
+
+            <TextView
+                android:id="@+id/tv_category_kor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="6dp"
+                android:text="전체"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/btn_category"
+                app:layout_constraintEnd_toEndOf="@id/btn_category"
+                app:layout_constraintStart_toEndOf="@id/tv_category_eng"
+                app:layout_constraintTop_toTopOf="@id/btn_category" />
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_sub"
