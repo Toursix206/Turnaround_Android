@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.view.ViewTreeObserver.OnScrollChangedListener
 import androidx.activity.OnBackPressedCallback
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -16,7 +15,6 @@ import org.android.turnaround.data.model.Work
 import org.android.turnaround.databinding.FragmentHomeBinding
 import org.android.turnaround.presentation.base.BaseFragment
 import kotlin.math.max
-
 
 const val FINISH_INTERVAL_TIME: Long = 2000
 
@@ -48,12 +46,17 @@ class HomeFragment :  BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) 
     }
 
     private fun setKitAdapter() {
-        val kitUrl = "https://user-images.githubusercontent.com/61674991/180229556-0cb49e88-22ea-40ca-8b4e-bfb1e07c3894.png"
+        val kitUrl1 = "https://user-images.githubusercontent.com/61674991/180229556-0cb49e88-22ea-40ca-8b4e-bfb1e07c3894.png"
+        val kitUrl2 = "https://user-images.githubusercontent.com/61674991/180587738-5ffc8c79-203b-4c8a-9e70-008058802b53.png"
         val kitArr = arrayListOf(
-            Kit("화장실", "팡이 팡이\n곰팡이", kitUrl),
-            Kit("화장실", "팡이 팡이\n곰팡이", kitUrl),
-            Kit("화장실", "팡이 팡이\n곰팡이", kitUrl),
-            Kit("화장실", "팡이 팡이\n곰팡이", kitUrl)
+            Kit("무료활동", "#000000", "화장실", "팡이 팡이\n곰팡이",
+                "화장실에 꽃이 폈어요. 샤워하면서 제거!", kitUrl1),
+            Kit("무료활동", "#000000", "세탁기", "향기로\n밀린 빨래\n재탄생",
+                "세탁조 청소부터 요즘 힙한 섬유유연코스!", kitUrl2),
+            Kit("무료활동", "#000000", "세탁기", "향기로\n밀린 빨래\n재탄생",
+                "세탁조 청소부터 요즘 힙한 섬유유연코스!", kitUrl2),
+            Kit("무료활동", "#000000", "화장실", "팡이 팡이\n곰팡이",
+                "화장실에 꽃이 폈어요. 샤워하면서 제거!", kitUrl1),
         )
         binding.vpKit.adapter = KitAdapter().apply {
             submitList(kitArr)
@@ -71,7 +74,7 @@ class HomeFragment :  BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) 
         binding.vpBanner.adapter = BannerAdapter().apply {
             submitList(bannerArr)
         }
-        TabLayoutMediator(binding.tabBanner, binding.vpBanner) { _, _ -> }.attach()
+        TabLayoutMediator(binding.tabBannerIndicator, binding.vpBanner) { _, _ -> }.attach()
     }
 
     private fun setMainTabListener() {

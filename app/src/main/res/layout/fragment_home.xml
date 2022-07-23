@@ -82,16 +82,20 @@
                 app:layout_constraintTop_toBottomOf="@id/iv_room" />
 
             <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tab_banner"
-                android:layout_width="wrap_content"
+                android:id="@+id/tab_banner_indicator"
+                android:layout_width="0dp"
                 android:layout_height="10dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vp_banner"
-                app:tabBackground="@drawable/selector_viewpager_indicator"
+                app:tabBackground="@drawable/bg_tab_underline"
                 app:tabGravity="center"
-                app:tabIndicatorHeight="0dp"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicator="@drawable/bg_tab_indicator"
+                app:tabIndicatorColor="@color/black"
+                app:tabIndicatorGravity="bottom"
+                app:tabIndicatorHeight="2dp"
                 app:tabPadding="20dp" />
 
             <com.google.android.material.tabs.TabLayout
