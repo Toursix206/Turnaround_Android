@@ -6,5 +6,8 @@ data class Kit(
     val category: String,
     val title: String,
     val label: String,
-    val bannerImage: String
+    val bannerImage: String,
+    val price: Int,
+    val updated: String,
+    val like: Int
 )

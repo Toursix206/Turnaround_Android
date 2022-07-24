@@ -15,101 +15,93 @@
         android:layout_height="match_parent"
         android:layout_marginHorizontal="40dp">
 
-        <androidx.cardview.widget.CardView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="420dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_banner"
+                imageUrl="@{kit.bannerImage}"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="400dp"
+                android:background="@drawable/bg_gray_r20"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/Round15" />
 
-                <ImageView
-                    android:id="@+id/iv_banner"
-                    imageUrl="@{kit.bannerImage}"
-                    android:layout_width="0dp"
-                    android:layout_height="400dp"
-                    android:background="@drawable/bg_gray_r20"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/tv_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/bg_black_r3"
+                android:paddingHorizontal="18dp"
+                android:paddingVertical="4dp"
+                android:text="@{kit.badge}"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="@id/iv_banner"
+                app:layout_constraintTop_toTopOf="@id/iv_banner"
+                tools:text="맞춤 KIT" />
 
-                <TextView
-                    android:id="@+id/tv_badge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="18dp"
-                    android:layout_marginTop="25dp"
-                    android:background="@drawable/bg_black_r3"
-                    android:paddingHorizontal="18dp"
-                    android:paddingVertical="4dp"
-                    android:text="@{kit.badge}"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="10dp"
-                    app:layout_constraintStart_toStartOf="@id/iv_banner"
-                    app:layout_constraintTop_toTopOf="@id/iv_banner"
-                    tools:text="맞춤 KIT" />
-
-                <TextView
-                    android:id="@+id/tv_category"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:background="@drawable/bg_white_r50"
-                    android:paddingHorizontal="10dp"
-                    android:paddingVertical="4dp"
-                    android:text="@{kit.category}"
-                    android:textColor="#888F95"
-                    android:textSize="10sp"
-                    app:layout_constraintStart_toStartOf="@id/iv_banner"
-                    app:layout_constraintTop_toBottomOf="@id/guideline"
-                    tools:text="화장실" />
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/bg_white_r50"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="@{kit.category}"
+                android:textColor="#888F95"
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="@id/iv_banner"
+                app:layout_constraintTop_toBottomOf="@id/guideline"
+                tools:text="화장실" />
 
 
-                <TextView
-                    android:id="@+id/tv_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:text="@{kit.title}"
-                    android:textColor="@color/white"
-                    android:textSize="30sp"
-                    app:layout_constraintBottom_toTopOf="@id/tv_label"
-                    app:layout_constraintStart_toStartOf="@id/iv_banner"
-                    app:layout_constraintTop_toBottomOf="@id/tv_category"
-                    tools:text="팡이 팡이\n곰팡이" />
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@{kit.title}"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toTopOf="@id/tv_label"
+                app:layout_constraintStart_toStartOf="@id/iv_banner"
+                app:layout_constraintTop_toBottomOf="@id/tv_category"
+                tools:text="팡이 팡이\n곰팡이" />
 
-                <TextView
-                    android:id="@+id/tv_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="40dp"
-                    android:maxLines="1"
-                    android:text="@{kit.label}"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="@id/iv_banner"
-                    app:layout_constraintStart_toStartOf="@id/iv_banner"
-                    tools:text="화장실에 꽃이 폈어요. 샤워하면서 제거!" />
+            <TextView
+                android:id="@+id/tv_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="40dp"
+                android:maxLines="1"
+                android:text="@{kit.label}"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_banner"
+                app:layout_constraintStart_toStartOf="@id/iv_banner"
+                tools:text="화장실에 꽃이 폈어요. 샤워하면서 제거!" />
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_percent="0.45" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.45" />
 
-        </androidx.cardview.widget.CardView>
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

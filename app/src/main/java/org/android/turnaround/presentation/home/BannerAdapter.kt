@@ -1,17 +1,13 @@
 package org.android.turnaround.presentation.home
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.android.turnaround.data.model.Banner
 import org.android.turnaround.databinding.ItemBannerBinding
 
-// Filterable
 class BannerAdapter: ListAdapter<Banner, BannerAdapter.BannerViewHolder>(BannerDiffCallback()) {
     private lateinit var binding: ItemBannerBinding
 
