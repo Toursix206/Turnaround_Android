@@ -30,4 +30,8 @@
         android:id="@+id/addressInfoInputFragment"
         android:name="org.android.turnaround.presentation.login.AddressInfoInputFragment"
         android:label="AddressInfoInputFragment" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="org.android.turnaround.presentation.detail.DetailFragment"
+        android:label="DetailFragment" />
 </navigation>

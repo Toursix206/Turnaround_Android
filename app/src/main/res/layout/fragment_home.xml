@@ -1,14 +1,274 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.home.HomeFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_View"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/back_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:isScrollContainer="true">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="83dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="right"
+                        android:layout_margin="20dp"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/ic_launcher" />
+                </FrameLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_work"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:clickable="true"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                tools:listitem="@layout/item_work" />
+
+            <ImageView
+                android:id="@+id/iv_room"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="80dp"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rv_work" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/movable_layout"
+                android:layout_width="0dp"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_room" >
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:animateLayoutChanges="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_banner_indicator"
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/vp_banner"
+                    app:tabBackground="@drawable/bg_tab_underline"
+                    app:tabGravity="center"
+                    app:tabIndicator="@drawable/bg_tab_indicator"
+                    app:tabIndicatorColor="@color/black"
+                    app:tabIndicatorGravity="bottom"
+                    app:tabIndicatorHeight="2dp"
+                    app:tabPadding="20dp" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_main"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="35dp"
+                    app:layout_constraintEnd_toEndOf="@id/tab2_1"
+                    app:layout_constraintStart_toStartOf="@id/tab1_1"
+                    app:layout_constraintTop_toBottomOf="@id/vp_banner"
+                    app:tabBackground="@drawable/bg_tab_underline"
+                    app:tabIndicator="@drawable/bg_tab_indicator"
+                    app:tabIndicatorColor="@color/black"
+                    app:tabIndicatorGravity="bottom"
+                    app:tabIndicatorHeight="2dp"
+                    app:tabPaddingEnd="40dp"
+                    app:tabPaddingStart="40dp"
+                    app:tabSelectedTextColor="@color/black">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.tabs.TabLayout>
+
+
+                <TextView
+                    android:id="@+id/tab1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:paddingStart="10dp"
+                    android:text="무료"
+                    android:textColor="#1371ff"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@id/tab1_1"
+                    app:layout_constraintEnd_toStartOf="@id/tab2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vp_banner" />
+
+                <TextView
+                    android:id="@+id/tab1_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:paddingStart="10dp"
+                    android:text="#기본 #지금당장"
+                    android:textColor="#1371ff"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tab_main"
+                    app:layout_constraintEnd_toEndOf="@id/tab1"
+                    app:layout_constraintStart_toStartOf="@id/tab1"
+                    app:layout_constraintTop_toBottomOf="@id/tab1" />
+
+                <TextView
+                    android:id="@+id/tab2"
+                    android:layout_width="50dp"
+                    android:layout_height="31dp"
+                    android:layout_marginTop="40dp"
+                    android:paddingEnd="10dp"
+                    android:text="추천"
+                    android:textColor="#dddddd"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@id/tab2_1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tab1"
+                    app:layout_constraintTop_toBottomOf="@id/vp_banner" />
+
+                <TextView
+                    android:id="@+id/tab2_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="#더꼼꼼하고 #효과적인"
+                    android:textColor="#dddddd"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tab_main"
+                    app:layout_constraintEnd_toEndOf="@id/tab2"
+                    app:layout_constraintStart_toStartOf="@id/tab2"
+                    app:layout_constraintTop_toBottomOf="@id/tab2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View
+                android:id="@+id/btn_category"
+                android:layout_width="100dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_black_r10"
+                app:layout_constraintBottom_toBottomOf="@id/tab_sub"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tab_sub" />
+
+            <TextView
+                android:id="@+id/tv_category_eng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:text="CATEGORY"
+                android:textColor="@color/white"
+                android:textSize="5sp"
+                app:layout_constraintBottom_toBottomOf="@id/btn_category"
+                app:layout_constraintStart_toStartOf="@id/btn_category"
+                app:layout_constraintTop_toTopOf="@id/btn_category" />
+
+            <TextView
+                android:id="@+id/tv_category_kor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="6dp"
+                android:text="전체"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@id/btn_category"
+                app:layout_constraintEnd_toEndOf="@id/btn_category"
+                app:layout_constraintStart_toEndOf="@id/tv_category_eng"
+                app:layout_constraintTop_toTopOf="@id/btn_category" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/movable_layout"
+                app:tabBackground="@drawable/bg_tab_underline"
+                app:tabIndicator="@drawable/bg_tab_indicator"
+                app:tabIndicatorColor="@color/black"
+                app:tabIndicatorGravity="bottom"
+                app:tabIndicatorHeight="2dp"
+                app:tabPaddingBottom="-20dp"
+                app:tabPaddingEnd="6dp"
+                app:tabPaddingStart="6dp"
+                app:tabSelectedTextColor="@color/black"
+                app:tabTextColor="@color/black">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최신순" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="인기순" />
+            </com.google.android.material.tabs.TabLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_kit"
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tab_sub"
+                tools:listitem="@layout/item_kit" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>
