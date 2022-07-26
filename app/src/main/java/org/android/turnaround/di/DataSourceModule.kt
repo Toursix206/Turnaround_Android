@@ -4,15 +4,16 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import org.android.turnaround.data.repository.AuthRepositoryImpl
-import org.android.turnaround.domain.repository.AuthRepository
+import org.android.turnaround.data.remote.datasource.LoginDataSource
+import org.android.turnaround.data.remote.datasource.LoginDataSourceImpl
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-interface RepositoryModule {
+interface DataSourceModule {
 
     @Binds
     @Singleton
-    fun bindsLoginRepository(repository: AuthRepositoryImpl): AuthRepository
+    fun bindsLoginDataSource(dataSourceImpl: LoginDataSourceImpl): LoginDataSource
+
 }

@@ -3,7 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_darkgray_r10.xml" value="0.1595" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_gray_r20.xml" value="0.1595" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_transparent.xml" value="0.1595" />
@@ -17,9 +16,7 @@
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_banner.xml" value="0.25364583333333335" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_kit.xml" value="0.2526041666666667" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_work.xml" value="0.6" />
-=======
         <entry key="app/src/main/res/drawable/bg_stroke_10.xml" value="0.262" />
->>>>>>> d1cdbae1ec5f534bbe77b46a7795f57fbb2bf81d
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3729166666666667" />
         <entry key="app/src/main/res/layout/fragment_address_info_input.xml" value="0.35885416666666664" />
         <entry key="app/src/main/res/layout/fragment_address_search_dialog.xml" value="0.3151041666666667" />
