@@ -45,6 +45,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                         )
                     } else if (token != null) {
                         Log.i(TAG, "카카오톡으로 로그인 성공 ${token.accessToken}")
+                        loginViewModel.postLogin()
                     }
                 }
             } else {
