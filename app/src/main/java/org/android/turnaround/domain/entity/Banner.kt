@@ -1,4 +1,4 @@
-package org.android.turnaround.data.model
+package org.android.turnaround.domain.entity
 
 data class Banner(
     val image: String,

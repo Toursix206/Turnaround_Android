@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import org.android.turnaround.data.model.Banner
+import org.android.turnaround.domain.entity.Banner
 import org.android.turnaround.databinding.ItemBannerBinding
 
 class BannerAdapter: ListAdapter<Banner, BannerAdapter.BannerViewHolder>(BannerDiffCallback()) {

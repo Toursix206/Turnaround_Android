@@ -7,7 +7,7 @@
 
         <variable
             name="work"
-            type="org.android.turnaround.data.model.Work" />
+            type="org.android.turnaround.domain.entity.Work" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

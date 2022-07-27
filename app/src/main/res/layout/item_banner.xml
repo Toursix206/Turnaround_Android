@@ -7,7 +7,7 @@
 
         <variable
             name="banner"
-            type="org.android.turnaround.data.model.Banner" />
+            type="org.android.turnaround.domain.entity.Banner" />
     </data>
 
     <androidx.cardview.widget.CardView

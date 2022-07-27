@@ -1,14 +1,11 @@
 package org.android.turnaround.presentation.home
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import org.android.turnaround.data.model.Work
+import org.android.turnaround.domain.entity.Work
 import org.android.turnaround.databinding.ItemWorkHomeBinding
 
 // Filterable

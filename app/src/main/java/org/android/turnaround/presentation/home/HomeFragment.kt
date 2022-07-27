@@ -5,16 +5,15 @@ import android.animation.AnimatorListenerAdapter
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import org.android.turnaround.R
-import org.android.turnaround.data.model.Banner
-import org.android.turnaround.data.model.Kit
-import org.android.turnaround.data.model.Work
+import org.android.turnaround.domain.entity.Banner
+import org.android.turnaround.domain.entity.Kit
+import org.android.turnaround.domain.entity.Work
 import org.android.turnaround.databinding.FragmentHomeBinding
 import org.android.turnaround.presentation.base.BaseFragment
 
