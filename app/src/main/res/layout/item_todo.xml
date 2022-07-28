@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="todo"
+            type="org.android.turnaround.domain.entity.Todo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp">
+
+        <View
+            android:id="@+id/view_context"
+            android:layout_width="69dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_gray_r20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingHorizontal="6dp"
+            android:text="@{todo.label}"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@id/view_context"
+            app:layout_constraintStart_toStartOf="@id/view_context"
+            app:layout_constraintTop_toTopOf="@id/view_context"
+            tools:text="팡이 팡이 곰팡이" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingHorizontal="6dp"
+            android:text="@{todo.time}"
+            android:textColor="@color/ta_yellow_FDD160"
+            android:textSize="8sp"
+            app:layout_constraintEnd_toEndOf="@id/view_context"
+            app:layout_constraintStart_toStartOf="@id/view_context"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:text="D-3" />
+
+
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_black_r10"
+            android:gravity="center"
+            android:paddingVertical="2dp"
+            android:text="@{todo.category}"
+            android:textColor="@color/white"
+            android:textSize="8sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="화장실" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_red_badge"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
