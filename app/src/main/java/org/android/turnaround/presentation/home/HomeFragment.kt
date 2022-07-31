@@ -1,20 +1,18 @@
 package org.android.turnaround.presentation.home
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 import org.android.turnaround.R
+import org.android.turnaround.databinding.FragmentHomeBinding
 import org.android.turnaround.domain.entity.Banner
 import org.android.turnaround.domain.entity.Kit
 import org.android.turnaround.domain.entity.Todo
-import org.android.turnaround.databinding.FragmentHomeBinding
 import org.android.turnaround.presentation.base.BaseFragment
 
 const val FINISH_INTERVAL_TIME: Long = 2000
@@ -31,16 +29,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         setBannerAdapter()
         setKitAdapter()
 
-        //setBannerAnimationListener()
-        setHomeToDisplayListener()
+        setMoveHomePageAndDisplayPageListener()
 
         setCategoryBtnFilter()
         setMainTabFilter()
         setSubTabFilter()
+        setKitFloatingBtnListener()
+    }
+
+    private fun setKitFloatingBtnListener() {
+        binding.btnFloatingKit.setOnClickListener {
+            binding.vpKit.setCurrentItem(0, true)
+        }
     }
 
     private fun setTodoAdapter() {
-        val workArr = arrayListOf(
+        val todoArr = arrayListOf(
             Todo("화장실", "곰팡이 청소1", "D-3"),
             Todo("화장실", "곰팡이 청소2", "D-3"),
             Todo("화장실", "곰팡이 청소3", "D-3"),
@@ -49,8 +53,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             Todo("침대", "침대 정리", "20:15:33"),
             Todo("화장실", "곰팡이 청소5", "20:15:33")
         )
-        binding.rvWork.adapter = TodoAdapter().apply {
-            submitList(workArr)
+        binding.rvTodo.adapter = TodoAdapter().apply {
+            submitList(todoArr)
         }
     }
 
@@ -66,7 +70,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         binding.vpBanner.adapter = BannerAdapter().apply {
             submitList(bannerArr)
         }
-        TabLayoutMediator(binding.tabBannerIndicator, binding.vpBanner) { _, _ -> }.attach()
+        binding.vpBanner.registerOnPageChangeCallback(object :ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                val size = binding.vpBanner.adapter?.itemCount
+                binding.tvBannerIndicator.text = "${position + 1} / $size"
+            }
+        })
     }
 
     private fun setKitAdapter() {
@@ -96,24 +106,43 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         binding.vpKit.setPageTransformer(DepthPageTransformer())
     }
 
-    private fun setHomeToDisplayListener() {
+    private fun setMoveHomePageAndDisplayPageListener() {
+        // 스크롤 불가
+        binding.scrollView.setOnTouchListener { v, event -> true }
+        // 키트 클릭 시 진열 페이지로 이동
+        binding.viewKit.setOnClickListener {
+            binding.scrollView.smoothScrollTo(0, binding.layoutMainTab.top)
+            binding.viewKit.visibility = View.GONE
+            setVisibleGoneAnimation(binding.layoutMainTab, binding.layoutBanner)
+            binding.btnFloatingKit.show()
+        }
+        // 메인 탭 레이아웃 클릭 시 홈 페이지로 이동
+        binding.layoutMainTab.setOnClickListener {
+            binding.viewKit.visibility = View.VISIBLE
+            binding.scrollView.smoothScrollTo(0, binding.toolbar.top)
+            setVisibleGoneAnimation(binding.layoutBanner, binding.layoutMainTab)
+            binding.btnFloatingKit.hide()
+        }
+    }
 
+    private fun setVisibleGoneAnimation(visibleView: View, invisibleView: View) {
+        visibleView.animate().alpha(1.0f).duration = 300
+        invisibleView.animate().alpha(0.0f).duration = 300
     }
 
     private fun setMainTabFilter() {
-        val blue = "#1371ff"
-        val purple = "#9747FF"
-        val gray = "#dddddd"
+        val black = "#000000"
+        val gray = "#e2e2e2"
         binding.tabMain.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when(tab?.position){
                     0 -> {
                         kitAdapter.filter.filter(FILTER_FREE)
-                        changeMainTabTextColor(blue, gray)
+                        changeMainTabTextColor(black, gray)
                     }
                     1 -> {
                         kitAdapter.filter.filter(FILTER_RECOMMEND)
-                        changeMainTabTextColor(gray, purple)
+                        changeMainTabTextColor(gray, black)
                     }
                 }
             }
@@ -123,44 +152,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
     fun changeMainTabTextColor(color1: String, color2: String) {
         binding.tab1.setTextColor(Color.parseColor(color1))
-        binding.tab11.setTextColor(Color.parseColor(color1))
         binding.tab2.setTextColor(Color.parseColor(color2))
-        binding.tab21.setTextColor(Color.parseColor(color2))
     }
 
     private fun setCategoryBtnFilter() {
         val arrCategory = resources.getStringArray(R.array.home_category_arr)
         var clickCount = 0
         val maxCount = arrCategory.size - 1
+        binding.tvCategory.text = arrCategory[clickCount++]
         binding.tvCategory.setOnClickListener {
             if (clickCount == maxCount) clickCount = 0
             val category = arrCategory[clickCount++]
             binding.tvCategory.text = category
             kitAdapter.filter.filter(if(category == "전체") "" else category)
         }
-    }
-
-    private fun setBannerAnimationListener() {
-        binding.scrollView.viewTreeObserver.addOnScrollChangedListener {
-            val view = binding.scrollView.getChildAt(binding.scrollView.childCount - 1)
-            val topDetector = binding.scrollView.scrollY
-            val bottomDetector: Int = view.bottom - (binding.scrollView.height + binding.scrollView.scrollY)
-            // 바닥에 닿으면: 광고 배너 보이기
-            if (bottomDetector == 0) setBannerVisibleGoneAnimation(binding.layoutBanner, true)
-            // 위에 닿으면: 광보 배너 숨기기
-            else if (topDetector <= 0) setBannerVisibleGoneAnimation(binding.layoutBanner, false)
-        }
-    }
-    private fun setBannerVisibleGoneAnimation(view: View, visible: Boolean) {
-        view.animate()
-            .alpha(if (visible) 1.0f else 0.0f)
-            .setDuration(300)
-            .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator?) {
-                    super.onAnimationEnd(animation)
-                    view.visibility = if (visible) View.VISIBLE else View.GONE
-                }
-            })
     }
 
     private fun setSubTabFilter() {
@@ -199,7 +204,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                     if (intervalTime in 0..FINISH_INTERVAL_TIME) requireActivity().finish()
                     else {
                         backPressedTime = tempTime
-                        binding.scrollView.smoothScrollTo(0, binding.toolbar.top)
+                        binding.layoutMainTab.performClick()
                         return
                     }
                 }

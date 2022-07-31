@@ -47,7 +47,7 @@
                 android:text="@{kit.badge}"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="10dp"
+                android:textSize="12dp"
                 app:layout_constraintStart_toStartOf="@id/iv_banner"
                 app:layout_constraintTop_toTopOf="@id/iv_banner"
                 tools:text="맞춤 KIT" />
@@ -62,7 +62,7 @@
                 android:paddingVertical="4dp"
                 android:text="@{kit.category}"
                 android:textColor="#888F95"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toTopOf="@id/tv_title"
                 app:layout_constraintStart_toStartOf="@id/tv_badge"
                 tools:text="화장실" />
@@ -70,26 +70,31 @@
 
             <TextView
                 android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
+                android:ellipsize="end"
                 android:text="@{kit.title}"
                 android:textColor="@color/white"
-                android:textSize="30sp"
+                android:textSize="34sp"
                 app:layout_constraintBottom_toTopOf="@id/tv_label"
+                app:layout_constraintEnd_toEndOf="@id/tv_label"
                 app:layout_constraintStart_toStartOf="@id/tv_badge"
                 tools:text="팡이 팡이\n곰팡이" />
 
             <TextView
                 android:id="@+id/tv_label"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="21dp"
                 android:layout_marginBottom="57dp"
+                android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@{kit.label}"
                 android:textColor="@color/white"
-                android:textSize="12sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_banner"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/tv_badge"
                 tools:text="화장실에 꽃이 폈어요. 샤워하면서 제거!" />
 
