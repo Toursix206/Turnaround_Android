@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_loginFragment_to_basicInfoInputFragment"
             app:destination="@id/basicInfoInputFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/basicInfoInputFragment"
@@ -29,7 +32,11 @@
     <fragment
         android:id="@+id/addressInfoInputFragment"
         android:name="org.android.turnaround.presentation.login.AddressInfoInputFragment"
-        android:label="AddressInfoInputFragment" />
+        android:label="AddressInfoInputFragment" >
+        <action
+            android:id="@+id/action_addressInfoInputFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="org.android.turnaround.presentation.detail.DetailFragment"

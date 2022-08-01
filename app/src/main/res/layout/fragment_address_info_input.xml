@@ -24,6 +24,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_logo_black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -85,10 +94,11 @@
                 android:layout_marginTop="6dp"
                 android:background="@drawable/bg_stroke_10"
                 android:focusable="false"
-                android:hint="주소"
+                android:hint="주소를 검색해주세요"
                 android:inputType="none"
-                android:padding="8dp"
+                android:padding="17dp"
                 android:text="@{vm.address}"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_address" />
 
@@ -109,9 +119,11 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="13dp"
                 android:background="@drawable/bg_stroke_10"
+                android:text="@={vm.addressDetail}"
                 android:hint="상세"
                 android:inputType="none"
-                android:padding="8dp"
+                android:padding="17dp"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_address" />
@@ -131,9 +143,11 @@
                 android:layout_height="56dp"
                 android:layout_marginTop="6dp"
                 android:background="@drawable/bg_stroke_10"
-                android:hint="비밀번호"
+                android:hint="예) 종 1234"
+                android:text="@{vm.addressPw}"
+                android:textColor="@color/black"
                 android:inputType="none"
-                android:padding="8dp"
+                android:padding="17dp"
                 app:layout_constraintEnd_toEndOf="@id/et_address_detail"
                 app:layout_constraintStart_toStartOf="@id/tv_pw_title"
                 app:layout_constraintTop_toBottomOf="@id/tv_pw_title" />
@@ -141,10 +155,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_start"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="56dp"
                 android:layout_marginTop="19dp"
-                android:layout_marginBottom="157dp"
+                android:enabled="@{vm.isSetAddressInfo() == true ? true : false}"
+                android:background="@{vm.isSetAddressInfo() == true ? @drawable/bg_btn_radius_4_black : @drawable/bg_btn_radius_4_e2e2e2}"
                 android:text="시작하기"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/et_pw"
                 app:layout_constraintStart_toStartOf="@id/et_pw"

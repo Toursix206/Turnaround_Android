@@ -3,7 +3,8 @@ package org.android.turnaround.presentation.login
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
@@ -15,11 +16,22 @@ import org.android.turnaround.presentation.base.BaseFragment
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login) {
 
-    private val loginViewModel: LoginViewModel by viewModels()
+    private val loginViewModel: LoginViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setListeners()
+        isUserSetPage()
+    }
+
+    private fun isUserSetPage() {
+        loginViewModel.isUserSet.observe(viewLifecycleOwner) {
+            if (it) {
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            } else {
+                findNavController().navigate(R.id.action_loginFragment_to_basicInfoInputFragment)
+            }
+        }
     }
 
     private fun setListeners() {
@@ -27,9 +39,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
             UserApiClient.instance.unlink { error ->
                 if (error != null) {
                     Log.e(TAG, "연결 끊기 실패", error)
-                }
-                else {
+                } else {
                     Log.i(TAG, "연결 끊기 성공. SDK에서 토큰 삭제 됨")
+                    loginViewModel.deleteAccessToken()
                 }
             }
         }

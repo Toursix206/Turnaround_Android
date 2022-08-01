@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="org.android.turnaround.presentation.login.LoginViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,6 +24,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_logo_black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -87,11 +99,14 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_basic_title">
 
                 <TextView
+                    android:id="@+id/tv_gender_man"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="16dp"
                     android:text="남"
+                    android:textColor="@{vm.userGender == `MAN` ? @color/black : @color/ta_e2e2e2}"
+                    android:onClick="@{vm::clickGender}"
                     android:textAlignment="center" />
 
                 <View
@@ -101,11 +116,14 @@
                     android:background="@color/black" />
 
                 <TextView
+                    android:id="@+id/tv_gender_woman"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="16dp"
                     android:text="여"
+                    android:textColor="@{vm.userGender == `WOMAN` ? @color/black :@color/ta_e2e2e2 }"
+                    android:onClick="@{vm::clickGender}"
                     android:textAlignment="center" />
 
             </LinearLayout>
@@ -132,11 +150,14 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_level">
 
                 <TextView
+                    android:id="@+id/tv_clean_upper"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="16dp"
                     android:text="상"
+                    android:textColor="@{vm.userCleanLevel == `GOOD` ? @color/black :@color/ta_e2e2e2 }"
+                    android:onClick="@{vm::clickCleanLevel}"
                     android:textAlignment="center" />
 
                 <View
@@ -146,10 +167,13 @@
                     android:background="@color/black" />
 
                 <TextView
+                    android:id="@+id/tv_clean_middle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="16dp"
+                    android:textColor="@{vm.userCleanLevel == `NORMAL` ? @color/black :@color/ta_e2e2e2 }"
+                    android:onClick="@{vm::clickCleanLevel}"
                     android:text="중"
                     android:textAlignment="center" />
 
@@ -160,10 +184,13 @@
                     android:background="@color/black" />
 
                 <TextView
+                    android:id="@+id/tv_clean_lower"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="16dp"
+                    android:textColor="@{vm.userCleanLevel == `BAD` ? @color/black :@color/ta_e2e2e2 }"
+                    android:onClick="@{vm::clickCleanLevel}"
                     android:text="하"
                     android:textAlignment="center" />
             </LinearLayout>
@@ -173,8 +200,10 @@
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="157dp"
                 android:text="다음"
+                android:textColor="@color/white"
+                android:enabled="@{vm.isSetBasicInfo() == true ? true : false}"
+                android:background="@{vm.isSetBasicInfo() == true ? @drawable/bg_btn_radius_4_black : @drawable/bg_btn_radius_4_e2e2e2}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/ll_level"
                 app:layout_constraintStart_toStartOf="@id/ll_level"
