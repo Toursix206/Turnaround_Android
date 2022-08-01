@@ -9,6 +9,8 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.android.turnaround.data.local.LocalPreferencesDataSource
+import org.android.turnaround.data.local.LocalPreferencesDataSourceImpl
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -21,16 +23,15 @@ object RetrofitModule {
 
     @Provides
     @Singleton
-    fun provideInterceptor() =
+    fun provideInterceptor(localPreferencesDataSourceImpl: LocalPreferencesDataSourceImpl) =
         Interceptor { chain ->
             with(chain) {
                 proceed(
                     request()
                         .newBuilder()
                         .addHeader(
-                            "x-access-token",
-                            // EndTicketUserInfoLocalPreferences.accessToken ?: ""
-                            ""
+                            "Authorization",
+                            "Bearer "+localPreferencesDataSourceImpl.getAccessToken()
                         )
                         .build()
                 )
