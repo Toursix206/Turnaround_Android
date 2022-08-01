@@ -7,17 +7,19 @@
 
         <variable
             name="kit"
-            type="org.android.turnaround.data.model.Kit" />
+            type="org.android.turnaround.domain.entity.Kit" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="40dp">
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="420dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="w, 1.58:1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -25,10 +27,10 @@
                 android:id="@+id/iv_banner"
                 imageUrl="@{kit.bannerImage}"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="0dp"
                 android:background="@drawable/bg_gray_r20"
                 android:scaleType="centerCrop"
-                android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:shapeAppearanceOverlay="@style/Round15" />
@@ -37,8 +39,8 @@
                 android:id="@+id/tv_badge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/bg_black_r3"
                 android:paddingHorizontal="18dp"
                 android:paddingVertical="4dp"
@@ -54,15 +56,15 @@
                 android:id="@+id/tv_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginBottom="25dp"
                 android:background="@drawable/bg_white_r50"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="4dp"
                 android:text="@{kit.category}"
                 android:textColor="#888F95"
                 android:textSize="10sp"
-                app:layout_constraintStart_toStartOf="@id/iv_banner"
-                app:layout_constraintTop_toBottomOf="@id/guideline"
+                app:layout_constraintBottom_toTopOf="@id/tv_title"
+                app:layout_constraintStart_toStartOf="@id/tv_badge"
                 tools:text="화장실" />
 
 
@@ -70,36 +72,26 @@
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginBottom="15dp"
                 android:text="@{kit.title}"
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 app:layout_constraintBottom_toTopOf="@id/tv_label"
-                app:layout_constraintStart_toStartOf="@id/iv_banner"
-                app:layout_constraintTop_toBottomOf="@id/tv_category"
+                app:layout_constraintStart_toStartOf="@id/tv_badge"
                 tools:text="팡이 팡이\n곰팡이" />
 
             <TextView
                 android:id="@+id/tv_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="57dp"
                 android:maxLines="1"
                 android:text="@{kit.label}"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_banner"
-                app:layout_constraintStart_toStartOf="@id/iv_banner"
+                app:layout_constraintStart_toStartOf="@id/tv_badge"
                 tools:text="화장실에 꽃이 폈어요. 샤워하면서 제거!" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.45" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

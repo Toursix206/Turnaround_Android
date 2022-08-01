@@ -5,16 +5,15 @@ import android.animation.AnimatorListenerAdapter
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import org.android.turnaround.R
-import org.android.turnaround.data.model.Banner
-import org.android.turnaround.data.model.Kit
-import org.android.turnaround.data.model.Work
+import org.android.turnaround.domain.entity.Banner
+import org.android.turnaround.domain.entity.Kit
+import org.android.turnaround.domain.entity.Todo
 import org.android.turnaround.databinding.FragmentHomeBinding
 import org.android.turnaround.presentation.base.BaseFragment
 
@@ -28,25 +27,29 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setWorkAdapter()
+        setTodoAdapter()
         setBannerAdapter()
         setKitAdapter()
 
-        setBannerAnimationListener()
+        //setBannerAnimationListener()
+        setHomeToDisplayListener()
 
         setCategoryBtnFilter()
         setMainTabFilter()
         setSubTabFilter()
     }
 
-    private fun setWorkAdapter() {
+    private fun setTodoAdapter() {
         val workArr = arrayListOf(
-            Work("곰팡이 청소1", "20:15:33"),
-            Work("곰팡이 청소2", "20:15:33"),
-            Work("곰팡이 청소3", "20:15:33"),
-            Work("곰팡이 청소4", "20:15:33")
+            Todo("화장실", "곰팡이 청소1", "D-3"),
+            Todo("화장실", "곰팡이 청소2", "D-3"),
+            Todo("화장실", "곰팡이 청소3", "D-3"),
+            Todo("화장실", "곰팡이 청소4", "D-3"),
+            Todo("책상", "책상 정리","D-2"),
+            Todo("침대", "침대 정리", "20:15:33"),
+            Todo("화장실", "곰팡이 청소5", "20:15:33")
         )
-        binding.rvWork.adapter = WorkAdapter().apply {
+        binding.rvWork.adapter = TodoAdapter().apply {
             submitList(workArr)
         }
     }
@@ -93,6 +96,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         binding.vpKit.setPageTransformer(DepthPageTransformer())
     }
 
+    private fun setHomeToDisplayListener() {
+
+    }
+
     private fun setMainTabFilter() {
         val blue = "#1371ff"
         val purple = "#9747FF"
@@ -125,10 +132,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         val arrCategory = resources.getStringArray(R.array.home_category_arr)
         var clickCount = 0
         val maxCount = arrCategory.size - 1
-        binding.btnCategory.setOnClickListener {
+        binding.tvCategory.setOnClickListener {
             if (clickCount == maxCount) clickCount = 0
             val category = arrCategory[clickCount++]
-            binding.tvCategoryKor.text = category
+            binding.tvCategory.text = category
             kitAdapter.filter.filter(if(category == "전체") "" else category)
         }
     }
@@ -139,9 +146,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             val topDetector = binding.scrollView.scrollY
             val bottomDetector: Int = view.bottom - (binding.scrollView.height + binding.scrollView.scrollY)
             // 바닥에 닿으면: 광고 배너 보이기
-            if (bottomDetector == 0) setBannerVisibleGoneAnimation(binding.movableLayout, true)
+            if (bottomDetector == 0) setBannerVisibleGoneAnimation(binding.layoutBanner, true)
             // 위에 닿으면: 광보 배너 숨기기
-            else if (topDetector <= 0) setBannerVisibleGoneAnimation(binding.movableLayout, false)
+            else if (topDetector <= 0) setBannerVisibleGoneAnimation(binding.layoutBanner, false)
         }
     }
     private fun setBannerVisibleGoneAnimation(view: View, visible: Boolean) {

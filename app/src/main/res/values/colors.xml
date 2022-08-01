@@ -7,5 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+<<<<<<< HEAD
     <color name="ta_e2e2e2">#e2e2e2</color>
+=======
+
+    <color name="ta_purple_gray_a30_4c291147">#4c291147</color>
+    <color name="ta_yellow_FDD160">#FDD160</color>
+>>>>>>> b56c8565f158e3cd0e5836655994160d3a594aca
 </resources>
