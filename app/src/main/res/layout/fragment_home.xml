@@ -76,8 +76,15 @@
                 android:background="#80cdcdcd"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-
                 app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+            <View
+                android:id="@+id/view_banner_and_tab"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_room"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_banner"
@@ -86,7 +93,8 @@
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_room">
+                app:layout_constraintTop_toTopOf="@id/view_banner_and_tab"
+                app:layout_constraintBottom_toBottomOf="@id/view_banner_and_tab">
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/vp_banner"
@@ -116,11 +124,12 @@
                 android:id="@+id/layout_main_tab"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:alpha="0"
+                android:visibility="gone"
                 android:background="@drawable/bg_gradient_black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/layout_banner">
+                app:layout_constraintTop_toTopOf="@id/view_banner_and_tab"
+                app:layout_constraintBottom_toBottomOf="@id/view_banner_and_tab">
 
                 <ImageView
                     android:id="@+id/iv_tab1"
@@ -220,7 +229,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layout_banner"
+                app:layout_constraintTop_toBottomOf="@id/view_banner_and_tab"
                 app:tabBackground="@drawable/bg_tab_underline"
                 app:tabIndicator="@drawable/bg_tab_indicator"
                 app:tabIndicatorColor="@color/black"
