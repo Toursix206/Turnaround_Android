@@ -162,7 +162,7 @@
                     app:tabPaddingStart="10dp"
                     app:tabSelectedTextColor="@color/black"
                     app:tabTextAppearance="@style/TabTextSize10"
-                    app:tabTextColor="@color/ta_gray_e2e2e2">
+                    app:tabTextColor="@color/ta_e2e2e2">
 
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
@@ -191,7 +191,7 @@
                     android:layout_width="50dp"
                     android:layout_height="31dp"
                     android:text="@string/label_home_main_tab2_title"
-                    android:textColor="@color/ta_gray_e2e2e2"
+                    android:textColor="@color/ta_e2e2e2"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="@id/tab_main"
                     app:layout_constraintStart_toEndOf="@id/tab1"
