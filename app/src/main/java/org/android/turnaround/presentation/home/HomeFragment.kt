@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.core.view.size
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import org.android.turnaround.R
@@ -19,12 +20,18 @@ const val FILTER_MAIN_FREE = "무료"
 const val FILTER_MAIN_RECOMMEND = "추천"
 const val FILTER_SUB_NEW = "최신"
 const val FILTER_SUB_LIKE = "인기"
+const val FILTER_CATEGORY_ALL = "전체"
 const val FINISH_INTERVAL_TIME: Long = 2000
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private lateinit var callback: OnBackPressedCallback
     private lateinit var kitAdapter: KitAdapter
     private var backPressedTime: Long = 0
+
+    // 필터 기본값
+    var mainFilterValue = FILTER_MAIN_FREE
+    var subFilterValue = FILTER_SUB_NEW
+    var categoryFilterValue = FILTER_CATEGORY_ALL
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -97,50 +104,37 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             }
         })
         binding.vpKit.setPageTransformer(SlideUpTransformer())
+        startFiltering()
     }
 
     private fun setMoveHomePageAndDisplayPageListener() {
         // 스크롤 불가
         binding.scrollView.setOnTouchListener { v, event -> true }
-        // 키트 클릭 시 진열 페이지로 이동
-        binding.viewKit.setOnClickListener {
-            binding.scrollView.smoothScrollTo(0, binding.layoutMainTab.top)
-            binding.viewKit.visibility = View.GONE
-            setVisibleGoneAnimation(binding.layoutMainTab, binding.layoutBanner)
-            binding.btnFloatingKit.show()
-        }
-        // 메인 탭 레이아웃 클릭 시 홈 페이지로 이동
-        binding.layoutMainTab.setOnClickListener {
-            binding.viewKit.visibility = View.VISIBLE
-            binding.scrollView.smoothScrollTo(0, binding.toolbar.top)
-            setVisibleGoneAnimation(binding.layoutBanner, binding.layoutMainTab)
-            binding.btnFloatingKit.hide()
-        }
+        // 키트 클릭 시 진열 페이지로 이동 + 광고 배너 안 보임
+        binding.viewKit.setOnClickListener { setBannerVisibility(false) }
+        // 메인 탭 레이아웃 클릭 시 홈 페이지로 이동 + 광고 배너 보임
+        binding.layoutMainTab.setOnClickListener { setBannerVisibility(true) }
     }
-
-    private fun setVisibleGoneAnimation(visibleView: View, invisibleView: View) {
-        visibleView.animate().alpha(1.0f).duration = 300
-        invisibleView.animate().alpha(0.0f).duration = 300
+    private fun setBannerVisibility(isVisibleBanner: Boolean) {
+        binding.layoutMainTab.visibility = if(isVisibleBanner) View.GONE else View.VISIBLE
+        binding.layoutBanner.visibility = if(isVisibleBanner) View.VISIBLE else View.GONE
+        binding.btnFloatingKit.let { if(isVisibleBanner) it.hide() else it.show() }
+        binding.viewKit.visibility =  if(isVisibleBanner) View.VISIBLE else View.GONE
+        binding.scrollView.smoothScrollTo(0, if(isVisibleBanner) binding.toolbar.top else binding.layoutMainTab.top)
     }
 
     private fun setKitFilter() {
-        // 필터 기본값
-        var mainFilterValue = FILTER_MAIN_FREE
-        var subFilterValue = FILTER_SUB_NEW
-        var categoryFilterValue = "전체"
-
         // 메인 탭: 무료/추천
         val black = "#000000"
         val gray = "#e2e2e2"
         binding.tabMain.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 mainFilterValue = if (tab?.position == 0) FILTER_MAIN_FREE else FILTER_MAIN_RECOMMEND
-                kitAdapter.filter.filter("$mainFilterValue $subFilterValue $categoryFilterValue")
+                startFiltering()
                 binding.tab1.setTextColor(Color.parseColor(if (tab?.position == 0) black else gray))
                 binding.tab2.setTextColor(Color.parseColor(if (tab?.position == 1) black else gray))
                 binding.ivTab1.visibility = if (tab?.position == 0) View.VISIBLE else View.INVISIBLE
                 binding.ivTab2.visibility = if (tab?.position == 1) View.VISIBLE else View.INVISIBLE
-                binding.btnFloatingKit.callOnClick()
             }
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
             override fun onTabReselected(tab: TabLayout.Tab?) {}
@@ -150,8 +144,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         binding.tabSub.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 subFilterValue = if (tab?.position == 0) FILTER_SUB_NEW else FILTER_SUB_LIKE
-                kitAdapter.filter.filter("$mainFilterValue $subFilterValue $categoryFilterValue")
-                binding.btnFloatingKit.callOnClick()
+                startFiltering()
             }
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
             override fun onTabReselected(tab: TabLayout.Tab?) {}
@@ -167,9 +160,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             if (clickCount == maxCount) clickCount = 0
             categoryFilterValue = arrCategory[clickCount++]
             binding.tvCategory.text = categoryFilterValue
-            kitAdapter.filter.filter("$mainFilterValue $subFilterValue $categoryFilterValue")
-            binding.btnFloatingKit.callOnClick()
+            startFiltering()
         }
+    }
+    private fun startFiltering() {
+        kitAdapter.filter.filter("$mainFilterValue $subFilterValue $categoryFilterValue")
+        binding.btnFloatingKit.callOnClick()
     }
 
     private fun setKitFloatingBtnListener() {
@@ -215,5 +211,4 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         super.onDetach()
         callback.remove()
     }
-
 }

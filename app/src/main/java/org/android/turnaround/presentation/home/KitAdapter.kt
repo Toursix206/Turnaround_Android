@@ -47,7 +47,7 @@ class KitAdapter(val item: List<Kit>): RecyclerView.Adapter<KitAdapter.KitViewHo
                 val tag = constraint.toString().split(" ")
                 val mainFilter = tag[0]
                 val subFilter = tag[1]
-                val categoryFilter = if (tag[2] == "전체") "" else tag[2]
+                val categoryFilter = if (tag[2] == FILTER_CATEGORY_ALL) "" else tag[2]
 
                 val filteringList = arrayListOf<Kit>()
                 // 메인 필터(무료/추천) + 카테고리
@@ -61,7 +61,6 @@ class KitAdapter(val item: List<Kit>): RecyclerView.Adapter<KitAdapter.KitViewHo
                         if (item.price != 0 && item.category.contains(categoryFilter))
                             filteringList.add(item)
                 }
-
                 // 서브 필터(최신/인기)
                 if (subFilter == FILTER_SUB_NEW) filteringList.sortByDescending { it.updated }
                 else filteringList.sortByDescending { it.like }
