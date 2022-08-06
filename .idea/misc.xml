@@ -8,12 +8,18 @@
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_darkgray_r10.xml" value="0.1595" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_gradient_black.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_gray_r20.xml" value="0.1595" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_purple_r15.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_purple_r20.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_stroke_10.xml" value="0.1575" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_tab_indicator.xml" value="0.1575" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_tab_underline.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_todo_gray.xml" value="0.1575" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_todo_gray_r20.xml" value="0.1575" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_todo_purple_r20.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_transparent.xml" value="0.1595" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_white_r50.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1575" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/ic_red_badge.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/selected_viewpager_indicator.xml" value="0.1595" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/selector_viewpager_indecator.xml" value="0.1595" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/selector_viewpager_indicator.xml" value="0.1595" />
@@ -24,7 +30,7 @@
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_work_review.xml" value="0.25364583333333335" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_banner.xml" value="0.264" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_kit.xml" value="0.2526041666666667" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_todo.xml" value="0.72" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_todo.xml" value="1.0" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_todo_title.xml" value="0.25364583333333335" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_work.xml" value="0.176" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_work_home.xml" value="0.2490740740740741" />

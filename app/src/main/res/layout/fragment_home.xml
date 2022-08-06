@@ -50,7 +50,6 @@
                 android:id="@+id/rv_todo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="#80cdcdcd"
                 android:elevation="10dp"
                 android:orientation="horizontal"
                 android:paddingStart="9dp"
@@ -71,6 +70,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/rv_todo" />
 
+            <View
+                android:layout_width="0dp"
+                android:layout_height="75dp"
+                android:background="#80cdcdcd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_banner"
                 android:layout_width="0dp"
@@ -84,7 +92,6 @@
                     android:id="@+id/vp_banner"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:animateLayoutChanges="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -109,11 +116,32 @@
                 android:id="@+id/layout_main_tab"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:alpha="1"
+                android:alpha="0"
                 android:background="@drawable/bg_gradient_black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/layout_banner">
+
+                <ImageView
+                    android:id="@+id/iv_tab1"
+                    android:layout_width="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="20dp"
+                    android:scaleType="center"
+                    app:layout_constraintStart_toStartOf="@id/tab1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@drawable/ic_launcher_background"/>
+
+                <ImageView
+                    android:id="@+id/iv_tab2"
+                    android:layout_width="60dp"
+                    android:layout_height="20dp"
+                    android:scaleType="center"
+                    android:visibility="invisible"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="@id/tab2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@drawable/ic_launcher_background"/>
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tab_main"
@@ -123,7 +151,7 @@
                     android:backgroundTint="@android:color/transparent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_tab1"
                     app:tabBackground="@drawable/bg_tab_underline"
                     app:tabIndicator="@drawable/bg_tab_indicator"
                     app:tabIndicatorColor="@color/black"
@@ -147,7 +175,6 @@
                         android:text="@string/label_home_main_tab2_sub_title" />
                 </com.google.android.material.tabs.TabLayout>
 
-
                 <TextView
                     android:id="@+id/tab1"
                     android:layout_width="wrap_content"
@@ -157,7 +184,7 @@
                     android:textSize="20sp"
                     app:layout_constraintEnd_toStartOf="@id/tab2"
                     app:layout_constraintStart_toStartOf="@id/tab_main"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@id/iv_tab1" />
 
                 <TextView
                     android:id="@+id/tab2"
@@ -168,7 +195,7 @@
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="@id/tab_main"
                     app:layout_constraintStart_toEndOf="@id/tab1"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@id/iv_tab2" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
