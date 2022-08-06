@@ -7,36 +7,44 @@ import android.content.Context
 import android.net.http.SslError
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.android.turnaround.R
 import org.android.turnaround.databinding.FragmentAddressInfoInputBinding
 import org.android.turnaround.presentation.base.BaseFragment
+import org.android.turnaround.presentation.util.EventObserver
 
 @AndroidEntryPoint
 class AddressInfoInputFragment :
     BaseFragment<FragmentAddressInfoInputBinding>(R.layout.fragment_address_info_input) {
 
-    private val loginViewModel:LoginViewModel by viewModels()
-    //private val handler: Handler by lazy { Handler(Looper.getMainLooper()) }
+    private val loginViewModel: LoginViewModel by viewModels()
     val dialog: Dialog by lazy { Dialog(requireContext()) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = loginViewModel
         setListeners()
+        initSuccessSetInfo()
     }
 
     private fun setListeners() {
         binding.etAddress.setOnClickListener {
             initAddressWebView()
         }
+        binding.btnStart.setOnClickListener {
+            loginViewModel.postUserSet()
+        }
+    }
+
+    private fun initSuccessSetInfo() {
+        loginViewModel.successSetInfo.observe(viewLifecycleOwner, EventObserver {
+            if (it) findNavController().navigate(R.id.action_addressInfoInputFragment_to_homeFragment)
+        })
     }
 
     private fun initAddressWebView() {

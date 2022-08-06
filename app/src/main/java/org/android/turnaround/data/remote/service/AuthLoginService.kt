@@ -1,5 +1,6 @@
 package org.android.turnaround.data.remote.service
 
+import org.android.turnaround.data.remote.model.BaseResponse
 import org.android.turnaround.data.remote.model.Token
 import org.android.turnaround.data.remote.model.request.PostLoginRequest
 import org.android.turnaround.data.remote.model.response.PostLoginResponse
@@ -12,10 +13,10 @@ interface AuthLoginService {
     @POST("v1/auth/login")
     suspend fun postLogin(
         @Body body: PostLoginRequest
-    ): PostLoginResponse
+    ): BaseResponse<PostLoginResponse>
 
     @POST("v1/auth/refresh")
     suspend fun postReLogin(
         @Body body: Token
-    ): PostReLoginResponse
+    ): BaseResponse<PostReLoginResponse>
 }
