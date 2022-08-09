@@ -13,6 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="7dp"
         android:layout_marginStart="8dp">
 
         <View
@@ -20,7 +21,8 @@
             android:layout_width="69dp"
             android:layout_height="55dp"
             android:layout_marginTop="4dp"
-            android:background="@drawable/bg_gray_r20"
+            android:background="@drawable/bg_todo_purple_r20"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +52,7 @@
             android:maxLines="1"
             android:paddingHorizontal="6dp"
             android:text="@{todo.time}"
-            android:textColor="@color/ta_yellow_FDD160"
+            android:textColor="@color/white"
             android:textSize="8sp"
             app:layout_constraintEnd_toEndOf="@id/view_context"
             app:layout_constraintStart_toStartOf="@id/view_context"
@@ -75,10 +77,23 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_red_badge"
-            android:visibility="gone"
+            android:src="@drawable/ic_todo_badge"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/view_context"
+            android:background="@drawable/bg_purple_r15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/white"
+            android:text="활동 시작"/>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

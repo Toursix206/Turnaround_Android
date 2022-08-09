@@ -1,5 +1,6 @@
 package org.android.turnaround.presentation.home
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
@@ -13,11 +14,6 @@ import org.android.turnaround.databinding.ItemKitBinding
 2. 최신순/인기순<tag: const val
 3. 카테고리별(전체- 책상 - 세탁기 -화장실 - 주방 - 침대 - 창문)
 */
-
-const val FILTER_FREE = "무료"
-const val FILTER_RECOMMEND = "추천"
-const val FILTER_NEW = "최신"
-const val FILTER_POPULAR = "인기"
 
 // Filterable
 class KitAdapter(val item: List<Kit>): RecyclerView.Adapter<KitAdapter.KitViewHolder>(), Filterable {
@@ -48,28 +44,28 @@ class KitAdapter(val item: List<Kit>): RecyclerView.Adapter<KitAdapter.KitViewHo
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
-                val tag = constraint.toString()
+                val tag = constraint.toString().split(" ")
+                val mainFilter = tag[0]
+                val subFilter = tag[1]
+                val categoryFilter = if (tag[2] == FILTER_CATEGORY_ALL) "" else tag[2]
+
                 val filteringList = arrayListOf<Kit>()
-                filteredList = if (tag.isEmpty()) {
-                    unFilteredList
-                } else {
-                    when(tag) {
-                        FILTER_FREE -> {
-                            for (item in unFilteredList) if (item.price == 0) filteringList.add(item)
-                            filteringList
-                        }
-                        FILTER_RECOMMEND -> {
-                            for (item in unFilteredList) if (item.price != 0) filteringList.add(item)
-                            filteringList
-                        }
-                        FILTER_NEW -> { ArrayList(unFilteredList.sortedByDescending { it.updated }) }
-                        FILTER_POPULAR -> { ArrayList(unFilteredList.sortedByDescending { it.like }) }
-                        else -> {
-                            for (item in unFilteredList) if (item.category == tag) filteringList.add(item)
-                            filteringList
-                        }
-                    }
+                // 메인 필터(무료/추천) + 카테고리
+                if (mainFilter == FILTER_MAIN_FREE) {
+                    for (item in unFilteredList)
+                        if (item.price == 0 && item.category.contains(categoryFilter))
+                            filteringList.add(item)
                 }
+                else {
+                    for (item in unFilteredList)
+                        if (item.price != 0 && item.category.contains(categoryFilter))
+                            filteringList.add(item)
+                }
+                // 서브 필터(최신/인기)
+                if (subFilter == FILTER_SUB_NEW) filteringList.sortByDescending { it.updated }
+                else filteringList.sortByDescending { it.like }
+
+                filteredList = filteringList
                 val filterResults = FilterResults()
                 filterResults.values = filteredList
 
