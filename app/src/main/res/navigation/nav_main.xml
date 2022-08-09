@@ -41,4 +41,12 @@
         android:id="@+id/detailFragment"
         android:name="org.android.turnaround.presentation.detail.DetailFragment"
         android:label="DetailFragment" />
+    <fragment
+        android:id="@+id/myPageFragment"
+        android:name="org.android.turnaround.presentation.mypage.MyPageFragment"
+        android:label="MyPageFragment" />
+    <dialog
+        android:id="@+id/contactUsFragment"
+        android:name="org.android.turnaround.presentation.mypage.ContactUsFragment"
+        android:label="ContactUsFragment" />
 </navigation>
