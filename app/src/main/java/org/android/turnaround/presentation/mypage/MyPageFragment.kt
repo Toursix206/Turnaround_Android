@@ -21,10 +21,15 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
 
     private fun setListeners() {
         binding.tvContact.setOnClickListener { showContactUs() }
+        binding.tvPersonalInfo.setOnClickListener { showSetting() }
     }
 
     private fun showContactUs() {
         ContactUsFragment().show(childFragmentManager,ContactUsFragment().tag)
+    }
+
+    private fun showSetting() {
+        SettingFragment().show(childFragmentManager,SettingFragment().tag)
     }
 
 }

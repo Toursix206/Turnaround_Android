@@ -25,6 +25,9 @@
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_work.xml" value="0.6" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_work_home.xml" value="0.2490740740740741" />
         <entry key="app/src/main/res/drawable-hdpi/bg_btn_radius_4_black.xml" value="0.1845" />
+        <entry key="app/src/main/res/drawable-hdpi/switch_thumb.xml" value="0.2155" />
+        <entry key="app/src/main/res/drawable-hdpi/switch_track_off.xml" value="0.2165" />
+        <entry key="app/src/main/res/drawable-hdpi/switch_track_on.xml" value="0.2165" />
         <entry key="app/src/main/res/drawable/bg_btn_radius_4.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/bg_gradient.xml" value="0.1895" />
         <entry key="app/src/main/res/drawable/bg_gradient_9ba5ff_d2fff7.xml" value="0.1895" />
@@ -40,6 +43,7 @@
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.3729166666666667" />
         <entry key="app/src/main/res/layout/fragment_my_page.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_my_review.xml" value="0.209375" />
+        <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.209375" />
       </map>
     </option>
   </component>
