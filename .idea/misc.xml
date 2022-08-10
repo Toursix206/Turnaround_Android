@@ -28,13 +28,17 @@
         <entry key="app/src/main/res/drawable-hdpi/switch_thumb.xml" value="0.2155" />
         <entry key="app/src/main/res/drawable-hdpi/switch_track_off.xml" value="0.2165" />
         <entry key="app/src/main/res/drawable-hdpi/switch_track_on.xml" value="0.2165" />
+        <entry key="app/src/main/res/drawable-v24/bg_rectangle_40_e2e2e2.xml" value="0.231" />
         <entry key="app/src/main/res/drawable/bg_btn_radius_4.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/bg_gradient.xml" value="0.1895" />
         <entry key="app/src/main/res/drawable/bg_gradient_9ba5ff_d2fff7.xml" value="0.1895" />
         <entry key="app/src/main/res/drawable/bg_my_page_radius_10_f4f1ff.xml" value="0.229" />
         <entry key="app/src/main/res/drawable/bg_radius_top_20.xml" value="0.2065" />
+        <entry key="app/src/main/res/drawable/bg_rectangle_40_black.xml" value="0.23" />
         <entry key="app/src/main/res/drawable/bg_rectangle_radius_30_black.xml" value="0.23" />
+        <entry key="app/src/main/res/drawable/bg_review_10_671fff.xml" value="0.23" />
         <entry key="app/src/main/res/drawable/bg_stroke_10.xml" value="0.262" />
+        <entry key="app/src/main/res/drawable/bg_stroke_40_black.xml" value="0.23" />
         <entry key="app/src/main/res/drawable/dot_black.xml" value="0.23" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.30307262569832405" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2677083333333333" />
@@ -46,6 +50,7 @@
         <entry key="app/src/main/res/layout/fragment_my_order.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/layout/fragment_my_page.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_my_review.xml" value="0.209375" />
+        <entry key="app/src/main/res/layout/fragment_review_write.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.209375" />
         <entry key="app/src/main/res/layout/item_order.xml" value="0.2234375" />
       </map>
