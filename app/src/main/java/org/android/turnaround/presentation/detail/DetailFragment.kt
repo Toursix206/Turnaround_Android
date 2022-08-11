@@ -1,6 +1,7 @@
 package org.android.turnaround.presentation.detail
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,13 +19,25 @@ import org.android.turnaround.presentation.base.BaseFragment
 class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_detail) {
 
     private val tabTitleArray = arrayOf(
-        "Tab1",
-        "Tab2"
+        "활동정보",
+        "리뷰"
     )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewPager2()
+        initAppBarListener()
+    }
+
+    private fun initAppBarListener() {
+
+        binding.abKit.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
+            if (kotlin.math.abs(verticalOffset) - appBarLayout.totalScrollRange == 0) {
+                binding.clBottom.setBackgroundResource(R.drawable.bg_rectangle_white)
+            } else {
+                binding.clBottom.setBackgroundResource(R.drawable.bg_radius_top_20)
+            }
+        }
     }
 
     private fun initViewPager2() {

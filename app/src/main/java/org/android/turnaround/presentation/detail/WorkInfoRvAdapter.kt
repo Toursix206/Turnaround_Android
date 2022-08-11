@@ -9,7 +9,11 @@ import org.android.turnaround.databinding.ItemWorkBinding
 class WorkInfoRvAdapter : RecyclerView.Adapter<WorkInfoRvAdapter.WorkInfoViewHolder>() {
 
     var workInfoImage = arrayListOf<Int>(
+        R.color.purple_200,
         R.color.black,
+        R.color.purple_200,
+        R.color.black,
+        R.color.purple_200,
         R.color.black,
     )
 
