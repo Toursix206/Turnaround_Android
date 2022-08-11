@@ -6,6 +6,7 @@
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_black_r10.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_black_r20.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_darkgray_r10.xml" value="0.1595" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_gradient_9ba5ff_d2fff7.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_gradient_black.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_gray_r20.xml" value="0.1595" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_purple_r15.xml" value="0.1575" />
@@ -30,6 +31,7 @@
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/unselected_viewpager_indicator.xml" value="0.1595" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/activity_main.xml" value="0.24974358974358973" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_room_setting.xml" value="0.25364583333333335" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_work_review.xml" value="0.25364583333333335" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_banner.xml" value="0.264" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_kit.xml" value="0.2526041666666667" />

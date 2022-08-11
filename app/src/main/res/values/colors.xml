@@ -8,7 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="ta_cb43ff">#cb43ff</color>
+    <color name="ta_dddff0">#dddff0</color>
+    <color name="ta_671fff">#671fff</color>
+    <color name="ta_ff4684">#ff4684</color>
     <color name="ta_e2e2e2">#e2e2e2</color>
+    <color name="ta_8f8a8a">#8f8a8a</color>
     <color name="ta_888f95">#888f95</color>
     <color name="ta_purple_gray_a30_4c291147">#4c291147</color>
     <color name="ta_yellow_FDD160">#FDD160</color>

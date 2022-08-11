@@ -70,12 +70,13 @@
             tools:text="화장실" />
 
         <ImageView
+            android:id="@+id/iv_badge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/description_todo_badge"
             android:src="@drawable/ic_todo_badge"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@id/view_context"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -96,7 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/bg_purple_r15"
+            android:background="@drawable/bg_blue_r15"
             android:paddingHorizontal="12dp"
             android:paddingVertical="6dp"
             android:text="@string/label_start_todo"

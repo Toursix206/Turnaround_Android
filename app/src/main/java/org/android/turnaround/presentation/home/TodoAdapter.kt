@@ -1,9 +1,12 @@
 package org.android.turnaround.presentation.home
 
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
@@ -16,11 +19,12 @@ import java.text.SimpleDateFormat
 import java.time.Duration
 import java.util.*
 
+
 private data class DateTime(
     val days: Long,
     val hours: Long,
     val minutes: Long,
-    val seconds: Long
+    val seconds: Long,
 )
 
 class TodoAdapter: ListAdapter<Todo, TodoAdapter.TodoViewHolder>(TodoDiffCallback()) {
@@ -44,13 +48,12 @@ class TodoAdapter: ListAdapter<Todo, TodoAdapter.TodoViewHolder>(TodoDiffCallbac
 
         fun setTodoStyle(todo: Todo) {
             val diff = getDiffDateTime(todo.startTime)
-
             // D-1 초과
             if(diff.days > 0) setTodoReadyStyle(diff, todo, binding)
             // D-1 이하
             else {
                 if(diff.hours > 0 || diff.minutes > 0 || diff.seconds > 0) setTodoTimerStyle(diff, todo, binding)
-                else setTodoStartStyle(todo, binding)
+                else setTodoStartStyle(todo, false, binding)
             }
         }
     }
@@ -67,7 +70,10 @@ class TodoAdapter: ListAdapter<Todo, TodoAdapter.TodoViewHolder>(TodoDiffCallbac
             override fun onTick(millisUntilFinished: Long) {
                 countDown.add(Calendar.SECOND, -1)
             }
-            override fun onFinish() { setTodoTimerStyle(getDiffDateTime(todo.startTime), todo, binding) }
+            override fun onFinish() {
+                setTodoTimerStyle(getDiffDateTime(todo.startTime), todo, binding)
+                setViewClickListener(binding, isVisibleBadge = true, isVisibleStart = false)
+            }
         }.start()
     }
 
@@ -83,20 +89,30 @@ class TodoAdapter: ListAdapter<Todo, TodoAdapter.TodoViewHolder>(TodoDiffCallbac
                 countDown.add(Calendar.SECOND, -1)
                 binding.tvTime.text = mFormat.format(countDown.timeInMillis)
             }
-            override fun onFinish() { setTodoStartStyle(todo, binding) }
+            override fun onFinish() {
+                setTodoStartStyle(todo, true, binding)
+            }
         }.start()
     }
 
-    private fun setTodoStartStyle(todo: Todo, binding: ItemTodoBinding) {
+    private fun setTodoStartStyle(todo: Todo, isVisibleBadge: Boolean, binding: ItemTodoBinding) {
         binding.viewContext.setBackgroundResource(R.drawable.bg_black_r20)
 
         val mFormat = SimpleDateFormat("HH시 mm분까지")
         binding.tvTime.text = mFormat.format(todo.endTime)
-        binding.tvTitle.setTextColor(ContextCompat.getColor(binding.tvTitle.context, R.color.ta_cb43ff))
+        binding.tvTitle.setTextColor(ContextCompat.getColor(binding.tvTitle.context, R.color.ta_ff4684))
 
+        setViewClickListener(binding, isVisibleBadge, true)
+    }
+
+    private fun setViewClickListener(binding: ItemTodoBinding, isVisibleBadge: Boolean, isVisibleStart: Boolean) {
+        if (isVisibleBadge) binding.ivBadge.visibility = View.VISIBLE
         binding.viewContext.setOnClickListener {
-            binding.tvStartTodo.visibility = if(binding.tvStartTodo.isVisible) View.INVISIBLE else View.VISIBLE
-            binding.ivStartTodo.visibility = if(binding.ivStartTodo.isVisible) View.INVISIBLE else View.VISIBLE
+            if(isVisibleBadge && binding.ivBadge.isVisible) binding.ivBadge.visibility = View.GONE
+            if(isVisibleStart) {
+                binding.tvStartTodo.visibility = if(binding.tvStartTodo.isVisible) View.INVISIBLE else View.VISIBLE
+                binding.ivStartTodo.visibility = if(binding.ivStartTodo.isVisible) View.INVISIBLE else View.VISIBLE
+            }
         }
     }
 
@@ -113,6 +129,7 @@ class TodoAdapter: ListAdapter<Todo, TodoAdapter.TodoViewHolder>(TodoDiffCallbac
         val seconds = diff.toMillis() / 1000
         return DateTime(days, hours, minutes, seconds)
     }
+
     private fun getCountDownDateTime(diff: DateTime): Calendar {
         return Calendar.getInstance().apply {
             timeInMillis = 0
