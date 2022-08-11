@@ -50,9 +50,10 @@
                 android:id="@+id/rv_todo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:clipToPadding="false"
                 android:elevation="10dp"
                 android:orientation="horizontal"
-                android:paddingStart="9dp"
+                android:paddingHorizontal="17dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +65,7 @@
                 android:layout_width="0dp"
                 android:layout_height="400dp"
                 android:layout_marginBottom="80dp"
+                android:contentDescription="@string/description_bg_room"
                 android:scaleType="centerCrop"
                 android:src="@drawable/bg_home"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -71,12 +73,25 @@
                 app:layout_constraintTop_toTopOf="@id/rv_todo" />
 
             <View
+                android:id="@+id/iv_bg_rv_todo"
                 android:layout_width="0dp"
                 android:layout_height="75dp"
                 android:background="#80cdcdcd"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+            <ImageView
+                android:id="@+id/iv_room"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/description_bg_room"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bg_room_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/iv_bg_room"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_bg_rv_todo" />
 
             <View
                 android:id="@+id/view_banner_and_tab"
@@ -139,7 +154,7 @@
                     android:background="@drawable/ic_tab_speech_bubble"
                     android:gravity="center_horizontal"
                     android:padding="3dp"
-                    android:text="KIT 없이~"
+                    android:text="@string/label_main_tab1_bubble"
                     app:layout_constraintEnd_toEndOf="@id/tab1"
                     app:layout_constraintStart_toStartOf="@id/tab1"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -153,7 +168,7 @@
                     android:background="@drawable/ic_tab_speech_bubble"
                     android:gravity="center_horizontal"
                     android:padding="3dp"
-                    android:text="효율성 갑"
+                    android:text="@string/label_main_tab2_bubble"
                     android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="@id/tab2"
                     app:layout_constraintStart_toStartOf="@id/tab2"

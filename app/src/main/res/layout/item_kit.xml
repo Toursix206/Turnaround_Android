@@ -37,6 +37,7 @@
 
             <TextView
                 android:id="@+id/tv_badge"
+                style="@style/TextMedium12.Bold.White"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="21dp"
@@ -46,13 +47,13 @@
                 android:paddingVertical="4dp"
                 android:text="@{kit.badge}"
                 android:textAlignment="center"
-                style="@style/TextMedium12.Bold.White"
                 app:layout_constraintStart_toStartOf="@id/iv_banner"
                 app:layout_constraintTop_toTopOf="@id/iv_banner"
                 tools:text="맞춤 KIT" />
 
             <TextView
                 android:id="@+id/tv_category"
+                style="@style/TextMedium12.Bold.Gray"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="25dp"
@@ -60,7 +61,6 @@
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="4dp"
                 android:text="@{kit.category}"
-                style="@style/TextMedium12.Bold.Gray"
                 app:layout_constraintBottom_toTopOf="@id/tv_title"
                 app:layout_constraintStart_toStartOf="@id/tv_badge"
                 tools:text="화장실" />
@@ -68,12 +68,12 @@
 
             <TextView
                 android:id="@+id/tv_title"
+                style="@style/TextHeadline34.Bold.White"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:ellipsize="end"
                 android:text="@{kit.title}"
-                style="@style/TextHeadline34.Bold.White"
                 app:layout_constraintBottom_toTopOf="@id/tv_label"
                 app:layout_constraintEnd_toEndOf="@id/tv_label"
                 app:layout_constraintStart_toStartOf="@id/tv_badge"
@@ -81,6 +81,7 @@
 
             <TextView
                 android:id="@+id/tv_label"
+                style="@style/TextMedium16.White"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="21dp"
@@ -88,7 +89,6 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@{kit.label}"
-                style="@style/TextMedium16.White"
                 app:layout_constraintBottom_toBottomOf="@id/iv_banner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/tv_badge"
