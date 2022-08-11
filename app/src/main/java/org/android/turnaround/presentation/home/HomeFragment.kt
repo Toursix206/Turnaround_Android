@@ -69,26 +69,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         val start4 =  Calendar.getInstance()
         val end4 =  Calendar.getInstance()
         end4.add(Calendar.HOUR_OF_DAY, 2)
-        // 00:00:10: 시작 시간: 10초 뒤, 종료 시간: 현재+2시간
-        val start5 =  Calendar.getInstance()
-        start5.add(Calendar.SECOND, 10)
-        val end5 =  Calendar.getInstance()
-        end5.add(Calendar.HOUR_OF_DAY, 2)
-        // D-1 -> 00:00:10: 시작 시간: 1일+10초 뒤, 종료 시간: 현재+2시간
-        val start6 =  Calendar.getInstance()
-        start6.add(Calendar.DATE, 1)
-        start6.add(Calendar.SECOND, 10)
-        val end6 =  Calendar.getInstance()
-        end6.add(Calendar.DATE, 1)
-        end6.add(Calendar.HOUR_OF_DAY, 1)
 
         val todoArr = arrayListOf(
-            Todo("화장실", "D-1애서 바뀜", start6.time, end6.time),
             Todo("화장실", "48시간 뒤", start1.time, end1.time),
             Todo("화장실", "48시간 뒤", start1.time, end1.time),
             Todo("화장실", "지금 시작", start4.time, end4.time),
             Todo("화장실", "48시간 뒤", start1.time, end1.time),
-            Todo("화장실", "10초 뒤인지", start5.time, end5.time),
             Todo("책상", "3시간 뒤", start3.time, end3.time),
             Todo("화장실", "25시간 뒤", start2.time, end2.time)
         )
