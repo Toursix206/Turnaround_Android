@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Round15">
+        <item name="cornerSize">15dp</item>
+    </style>
+
+    <style name="TabTextSize10" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+
+
+</resources>

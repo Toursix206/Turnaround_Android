@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="org.android.turnaround.presentation.login.LoginViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.login.BasicInfoInputFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_logo_black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/bg_gradient_9ba5ff_d2fff7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_app_bar">
+
+            <TextView
+                android:id="@+id/tv_basic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="104dp"
+                android:fontFamily="@font/notosans_bold"
+                android:textSize="34dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/black"
+                android:text="기본 정보"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/notosans_bold"
+                android:textSize="15dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/black"
+                android:text="시작하기 전에 몇가지만 알려주세요 :)"
+                app:layout_constraintStart_toStartOf="@id/tv_basic"
+                app:layout_constraintTop_toBottomOf="@id/tv_basic" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="224dp"
+            android:background="@drawable/bg_radius_top_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_app_bar">
+
+            <TextView
+                android:id="@+id/tv_basic_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="27dp"
+                android:text="성별"
+                android:fontFamily="@font/notosans_bold"
+                android:textSize="15dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <LinearLayout
+                android:id="@+id/ll_gender"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/bg_stroke_10"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_basic_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_basic_title">
+
+                <TextView
+                    android:id="@+id/tv_gender_man"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="16dp"
+                    android:fontFamily="@font/notosans_medium"
+                    android:textSize="15dp"
+                    android:includeFontPadding="false"
+                    android:text="남"
+                    android:textColor="@{vm.userGender == `MAN` ? @color/black : @color/ta_e2e2e2}"
+                    android:onClick="@{vm::clickGender}"
+                    android:textAlignment="center" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_gender_woman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="16dp"
+                    android:text="여"
+                    android:fontFamily="@font/notosans_medium"
+                    android:textSize="15dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@{vm.userGender == `WOMAN` ? @color/black :@color/ta_e2e2e2 }"
+                    android:onClick="@{vm::clickGender}"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tv_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="부지런한 정도"
+                android:fontFamily="@font/notosans_bold"
+                android:textSize="15dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@id/ll_gender"
+                app:layout_constraintTop_toBottomOf="@id/ll_gender" />
+
+            <LinearLayout
+                android:id="@+id/ll_level"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_stroke_10"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@id/ll_gender"
+                app:layout_constraintStart_toStartOf="@id/tv_level"
+                app:layout_constraintTop_toBottomOf="@id/tv_level">
+
+                <TextView
+                    android:id="@+id/tv_clean_upper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="16dp"
+                    android:text="상"
+                    android:fontFamily="@font/notosans_medium"
+                    android:textSize="15dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@{vm.userCleanLevel == `GOOD` ? @color/black :@color/ta_e2e2e2 }"
+                    android:onClick="@{vm::clickCleanLevel}"
+                    android:textAlignment="center" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_clean_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="16dp"
+                    android:fontFamily="@font/notosans_medium"
+                    android:textSize="15dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@{vm.userCleanLevel == `NORMAL` ? @color/black :@color/ta_e2e2e2 }"
+                    android:onClick="@{vm::clickCleanLevel}"
+                    android:text="중"
+                    android:textAlignment="center" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_clean_lower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="16dp"
+                    android:fontFamily="@font/notosans_medium"
+                    android:textSize="15dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@{vm.userCleanLevel == `BAD` ? @color/black :@color/ta_e2e2e2 }"
+                    android:onClick="@{vm::clickCleanLevel}"
+                    android:text="하"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_next"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="20dp"
+                android:text="다음"
+                android:fontFamily="@font/notosans_bold"
+                android:textSize="16dp"
+                android:includeFontPadding="false"
+                android:textColor="@color/white"
+                android:enabled="@{vm.isSetBasicInfo() == true ? true : false}"
+                android:background="@{vm.isSetBasicInfo() == true ? @drawable/bg_btn_radius_4_black : @drawable/bg_btn_radius_4_e2e2e2}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/ll_level"
+                app:layout_constraintStart_toStartOf="@id/ll_level"
+                app:layout_constraintTop_toBottomOf="@id/ll_level" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
