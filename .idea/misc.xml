@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_black_r10.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_black_r20.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_darkgray_r10.xml" value="0.1595" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_gradient_black.xml" value="0.1575" />
@@ -16,6 +17,7 @@
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_todo_gray_r20.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_todo_purple_r20.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_transparent.xml" value="0.1595" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_white_r3.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_white_r50.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/ic_red_badge.xml" value="0.1575" />

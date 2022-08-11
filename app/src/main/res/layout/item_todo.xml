@@ -27,6 +27,7 @@
 
         <TextView
             android:id="@+id/tv_title"
+            style="@style/TextMedium9.Bold.White"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
@@ -35,8 +36,6 @@
             android:maxLines="1"
             android:paddingHorizontal="6dp"
             android:text="@{todo.label}"
-            android:textColor="@color/white"
-            android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="@id/view_context"
             app:layout_constraintStart_toStartOf="@id/view_context"
             app:layout_constraintTop_toTopOf="@id/view_context"
@@ -44,14 +43,13 @@
 
         <TextView
             android:id="@+id/tv_time"
+            style="@style/TextMedium8.Bold.White"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:gravity="center"
             android:maxLines="1"
             android:paddingHorizontal="6dp"
-            android:textColor="@color/white"
-            android:textSize="8sp"
             app:layout_constraintEnd_toEndOf="@id/view_context"
             app:layout_constraintStart_toStartOf="@id/view_context"
             app:layout_constraintTop_toBottomOf="@id/tv_title"
@@ -60,14 +58,13 @@
 
         <TextView
             android:id="@+id/tv_category"
+            style="@style/TextMedium8.Bold.White"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_black_r10"
             android:gravity="center"
             android:paddingVertical="2dp"
             android:text="@{todo.category}"
-            android:textColor="@color/white"
-            android:textSize="8sp"
             app:layout_constraintStart_toStartOf="@id/view_context"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="화장실" />
@@ -94,6 +91,7 @@
 
         <TextView
             android:id="@+id/tv_start_todo"
+            style="@style/TextMedium11.Bold.White"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -101,8 +99,6 @@
             android:paddingHorizontal="12dp"
             android:paddingVertical="6dp"
             android:text="활동 시작"
-            android:textColor="@color/white"
-            android:textSize="11sp"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@id/iv_start_todo"
             app:layout_constraintEnd_toEndOf="@id/iv_start_todo"
