@@ -50,9 +50,10 @@
                 android:id="@+id/rv_todo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:clipToPadding="false"
                 android:elevation="10dp"
                 android:orientation="horizontal"
-                android:paddingStart="9dp"
+                android:paddingHorizontal="17dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -60,17 +61,19 @@
                 tools:listitem="@layout/item_todo" />
 
             <ImageView
-                android:id="@+id/iv_room"
+                android:id="@+id/iv_bg_room"
                 android:layout_width="0dp"
                 android:layout_height="400dp"
                 android:layout_marginBottom="80dp"
+                android:contentDescription="@string/description_bg_room"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/bg_home"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/rv_todo" />
 
             <View
+                android:id="@+id/iv_bg_rv_todo"
                 android:layout_width="0dp"
                 android:layout_height="75dp"
                 android:background="#80cdcdcd"
@@ -78,23 +81,35 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
+            <ImageView
+                android:id="@+id/iv_room"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/description_bg_room"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bg_room_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/iv_bg_room"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_bg_rv_todo" />
+
             <View
                 android:id="@+id/view_banner_and_tab"
                 android:layout_width="0dp"
                 android:layout_height="110dp"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_room"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_bg_room" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_banner"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toBottomOf="@id/view_banner_and_tab"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/view_banner_and_tab"
-                app:layout_constraintBottom_toBottomOf="@id/view_banner_and_tab">
+                app:layout_constraintTop_toTopOf="@id/view_banner_and_tab">
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/vp_banner"
@@ -106,6 +121,7 @@
 
                 <TextView
                     android:id="@+id/tv_banner_indicator"
+                    style="@style/TextMedium10.White"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
@@ -113,8 +129,6 @@
                     android:background="@drawable/bg_black_r10_a30"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="2dp"
-                    android:textColor="@color/white"
-                    android:textSize="10sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -124,33 +138,41 @@
                 android:id="@+id/layout_main_tab"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:background="@drawable/bg_gradient_black"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@id/view_banner_and_tab"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/view_banner_and_tab"
-                app:layout_constraintBottom_toBottomOf="@id/view_banner_and_tab">
+                app:layout_constraintTop_toTopOf="@id/view_banner_and_tab">
 
-                <ImageView
+                <TextView
                     android:id="@+id/iv_tab1"
-                    android:layout_width="60dp"
+                    style="@style/TextMedium10.Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:layout_height="20dp"
-                    android:scaleType="center"
+                    android:background="@drawable/ic_tab_speech_bubble"
+                    android:gravity="center_horizontal"
+                    android:padding="3dp"
+                    android:text="@string/label_main_tab1_bubble"
+                    app:layout_constraintEnd_toEndOf="@id/tab1"
                     app:layout_constraintStart_toStartOf="@id/tab1"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:src="@drawable/ic_launcher_background"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
+                <TextView
                     android:id="@+id/iv_tab2"
-                    android:layout_width="60dp"
-                    android:layout_height="20dp"
-                    android:scaleType="center"
-                    android:visibility="invisible"
+                    style="@style/TextMedium10.Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    android:background="@drawable/ic_tab_speech_bubble"
+                    android:gravity="center_horizontal"
+                    android:padding="3dp"
+                    android:text="@string/label_main_tab2_bubble"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="@id/tab2"
                     app:layout_constraintStart_toStartOf="@id/tab2"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:src="@drawable/ic_launcher_background"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tab_main"
@@ -170,7 +192,7 @@
                     app:tabPaddingEnd="10dp"
                     app:tabPaddingStart="10dp"
                     app:tabSelectedTextColor="@color/black"
-                    app:tabTextAppearance="@style/TabTextSize10"
+                    app:tabTextAppearance="@style/TextMedium10.Bold"
                     app:tabTextColor="@color/ta_e2e2e2">
 
                     <com.google.android.material.tabs.TabItem
@@ -186,22 +208,20 @@
 
                 <TextView
                     android:id="@+id/tab1"
+                    style="@style/TextHeadline20.Bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/label_home_main_tab1_title"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
                     app:layout_constraintEnd_toStartOf="@id/tab2"
                     app:layout_constraintStart_toStartOf="@id/tab_main"
                     app:layout_constraintTop_toBottomOf="@id/iv_tab1" />
 
                 <TextView
                     android:id="@+id/tab2"
+                    style="@style/TextHeadline20.Bold.Gray"
                     android:layout_width="50dp"
                     android:layout_height="31dp"
                     android:text="@string/label_home_main_tab2_title"
-                    android:textColor="@color/ta_e2e2e2"
-                    android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="@id/tab_main"
                     app:layout_constraintStart_toEndOf="@id/tab1"
                     app:layout_constraintTop_toBottomOf="@id/iv_tab2" />
@@ -210,14 +230,13 @@
 
             <TextView
                 android:id="@+id/tv_category"
+                style="@style/TextMedium15.Bold.White"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:background="@drawable/bg_black_r10"
                 android:gravity="center"
                 android:paddingVertical="6dp"
-                android:textColor="@color/white"
-                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="@id/tab_sub"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="전체" />
@@ -239,7 +258,7 @@
                 app:tabPaddingEnd="6dp"
                 app:tabPaddingStart="6dp"
                 app:tabSelectedTextColor="@color/black"
-                app:tabTextAppearance="@style/TabTextSize10"
+                app:tabTextAppearance="@style/TextMedium10.Bold"
                 app:tabTextColor="@color/black">
 
                 <com.google.android.material.tabs.TabItem

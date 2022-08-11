@@ -13,21 +13,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="7dp"
-        android:layout_marginStart="8dp">
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="-4dp">
 
         <View
             android:id="@+id/view_context"
             android:layout_width="69dp"
             android:layout_height="55dp"
             android:layout_marginTop="4dp"
-            android:background="@drawable/bg_todo_purple_r20"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/bg_todo_gray_r20"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_title"
+            style="@style/TextMedium9.Bold.White"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
@@ -36,8 +36,6 @@
             android:maxLines="1"
             android:paddingHorizontal="6dp"
             android:text="@{todo.label}"
-            android:textColor="@color/white"
-            android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="@id/view_context"
             app:layout_constraintStart_toStartOf="@id/view_context"
             app:layout_constraintTop_toTopOf="@id/view_context"
@@ -45,15 +43,13 @@
 
         <TextView
             android:id="@+id/tv_time"
+            style="@style/TextMedium8.Bold.White"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:gravity="center"
             android:maxLines="1"
             android:paddingHorizontal="6dp"
-            android:text="@{todo.time}"
-            android:textColor="@color/white"
-            android:textSize="8sp"
             app:layout_constraintEnd_toEndOf="@id/view_context"
             app:layout_constraintStart_toStartOf="@id/view_context"
             app:layout_constraintTop_toBottomOf="@id/tv_title"
@@ -62,38 +58,54 @@
 
         <TextView
             android:id="@+id/tv_category"
+            style="@style/TextMedium8.Bold.White"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_black_r10"
             android:gravity="center"
             android:paddingVertical="2dp"
             android:text="@{todo.category}"
-            android:textColor="@color/white"
-            android:textSize="8sp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/view_context"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="화장실" />
 
         <ImageView
+            android:id="@+id/iv_badge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/description_todo_badge"
             android:src="@drawable/ic_todo_badge"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@id/view_context"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <ImageView
+            android:id="@+id/iv_start_todo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="11sp"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="4dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@id/view_context"
-            android:background="@drawable/bg_purple_r15"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="6dp"
+            android:contentDescription="@string/description_start_todo_speech_bubble"
+            android:src="@drawable/ic_todo_start_speech_bubble"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:textColor="@color/white"
-            android:text="활동 시작"/>
+            app:layout_constraintStart_toStartOf="@id/view_context"
+            app:layout_constraintTop_toBottomOf="@id/tv_time" />
 
-   </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_start_todo"
+            style="@style/TextMedium11.Bold.White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_blue_r15"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:text="@string/label_start_todo"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/iv_start_todo"
+            app:layout_constraintEnd_toEndOf="@id/iv_start_todo"
+            app:layout_constraintStart_toStartOf="@id/iv_start_todo"
+            app:layout_constraintTop_toTopOf="@id/iv_start_todo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
