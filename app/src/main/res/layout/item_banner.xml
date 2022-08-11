@@ -31,14 +31,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                style="@style/TextMedium10.White"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@color/black"
-                android:paddingVertical="2dp"
                 android:paddingHorizontal="20dp"
+                android:paddingVertical="2dp"
                 android:text="@{banner.period}"
-                android:textColor="@color/white"
-                android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_banner"

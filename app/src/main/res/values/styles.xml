@@ -4,10 +4,143 @@
         <item name="cornerSize">15dp</item>
     </style>
 
-    <style name="TabTextSize10" parent="TextAppearance.Design.Tab">
-        <item name="android:textSize">10sp</item>
+    <!--  Text Style  -->
+    <style name="TextMedium8" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">8sp</item>
+        <item name="android:fontFamily">@font/notosans_medium</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
+    <style name="TextMedium8.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
 
+    <style name="TextMedium8.Bold.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextMedium9" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">9sp</item>
+        <item name="android:fontFamily">@font/notosans_medium</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextMedium9.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextMedium9.Bold.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextMedium10" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/notosans_medium</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextMedium10.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextMedium10.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextMedium11" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:fontFamily">@font/notosans_medium</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextMedium11.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextMedium11.Bold.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextMedium12" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/notosans_medium</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextMedium12.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextMedium12.Bold.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="TextMedium12.Bold.Gray">
+        <item name="android:textColor">@color/ta_888f95</item>
+    </style>
+
+    <style name="TextMedium15" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/notosans_medium</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextMedium15.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextMedium15.Bold.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextMedium16" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/notosans_medium</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextMedium16.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextHeadline20">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/notosans_medium</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextHeadline20.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextHeadline20.Bold.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextHeadline20.Bold.Gray">
+        <item name="android:textColor">@color/ta_e2e2e2</item>
+    </style>
+
+    <style name="TextHeadline34" >
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:fontFamily">@font/notosans_medium</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="TextHeadline34.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextHeadline34.Bold.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
 
 </resources>
