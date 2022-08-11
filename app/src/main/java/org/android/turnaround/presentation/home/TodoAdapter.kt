@@ -16,6 +16,13 @@ import java.text.SimpleDateFormat
 import java.time.Duration
 import java.util.*
 
+private data class DateTime(
+    val days: Long,
+    val hours: Long,
+    val minutes: Long,
+    val seconds: Long
+)
+
 class TodoAdapter: ListAdapter<Todo, TodoAdapter.TodoViewHolder>(TodoDiffCallback()) {
     private lateinit var binding: ItemTodoBinding
 
@@ -36,61 +43,48 @@ class TodoAdapter: ListAdapter<Todo, TodoAdapter.TodoViewHolder>(TodoDiffCallbac
         }
 
         fun setTodoStyle(todo: Todo) {
-            val cal =  Calendar.getInstance()
-            val today = cal.time
-
-            var diff = Duration.between(today.toInstant(), todo.startTime.toInstant())
-            val days = diff.toDays()
-            diff = diff.minusDays(days)
-            val hours = diff.toHours()
+            val diff = getDiffDateTime(todo.startTime)
 
             // D-1 초과
-            if(days > 0) setTodoReadyStyle(days+1, binding)
+            if(diff.days > 0) setTodoReadyStyle(diff, todo, binding)
             // D-1 이하
             else {
-                if(hours > 0) setTodoTimerStyle(today, todo, binding)
+                if(diff.hours > 0 || diff.minutes > 0 || diff.seconds > 0) setTodoTimerStyle(diff, todo, binding)
                 else setTodoStartStyle(todo, binding)
             }
         }
     }
 
-    private fun setTodoReadyStyle(dDay: Long, binding: ItemTodoBinding) {
+    private fun setTodoReadyStyle(diff: DateTime, todo: Todo, binding: ItemTodoBinding) {
         binding.viewContext.setBackgroundResource(R.drawable.bg_todo_gray_r20)
-        binding.tvTime.text = "D-$dDay"
+        binding.tvTime.text = "D-${diff.days + 1}"
+
+        // 카운트 다운 시간 설정
+        val countDown = getCountDownDateTime(diff)
+        // 카운트 다운 시작
+        val tickCount = diff.hours*60*60*1000 + diff.minutes*60*1000 + diff.seconds*1000
+        object : CountDownTimer(tickCount, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                countDown.add(Calendar.SECOND, -1)
+            }
+            override fun onFinish() { setTodoTimerStyle(getDiffDateTime(todo.startTime), todo, binding) }
+        }.start()
     }
 
-    private fun setTodoTimerStyle(today: Date, todo: Todo, binding: ItemTodoBinding) {
+    private fun setTodoTimerStyle(diff: DateTime, todo: Todo, binding: ItemTodoBinding) {
         binding.viewContext.setBackgroundResource(R.drawable.bg_todo_purple_r20)
-
-        var diff = Duration.between(today.toInstant(), todo.startTime.toInstant())
-        val days = diff.toDays()
-        diff = diff.minusDays(days)
-        val hours = diff.toHours()
-        diff = diff.minusHours(hours)
-        val minutes = diff.toMinutes()
-        diff = diff.minusMinutes(minutes)
-        val seconds = diff.toMillis() / 1000
+        // 카운트 다운 시간 설정
         val mFormat = SimpleDateFormat("HH:mm:ss")
-        val diffTime = hours*60*60*1000 + minutes*60*1000
-
-        val countDown = Calendar.getInstance().apply {
-            timeInMillis = 0
-            set(Calendar.HOUR_OF_DAY, hours.toInt())
-            set(Calendar.MINUTE, minutes.toInt())
-            set(Calendar.SECOND, seconds.toInt())
-            set(Calendar.MILLISECOND, 0)
-        }
-
-        binding.tvTime.text = mFormat.format(countDown.timeInMillis)
-
-        object : CountDownTimer(diffTime, 1000) {
+        val countDown = getCountDownDateTime(diff)
+        // 카운트 다운 시작
+        val tickCount = diff.days*24*60*60*1000 + diff.hours*60*60*1000 + diff.minutes*60*1000 + diff.seconds*1000
+        object : CountDownTimer(tickCount, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 countDown.add(Calendar.SECOND, -1)
                 binding.tvTime.text = mFormat.format(countDown.timeInMillis)
             }
-            override fun onFinish() {  }
+            override fun onFinish() { setTodoStartStyle(todo, binding) }
         }.start()
-
     }
 
     private fun setTodoStartStyle(todo: Todo, binding: ItemTodoBinding) {
@@ -103,6 +97,30 @@ class TodoAdapter: ListAdapter<Todo, TodoAdapter.TodoViewHolder>(TodoDiffCallbac
         binding.viewContext.setOnClickListener {
             binding.tvStartTodo.visibility = if(binding.tvStartTodo.isVisible) View.INVISIBLE else View.VISIBLE
             binding.ivStartTodo.visibility = if(binding.ivStartTodo.isVisible) View.INVISIBLE else View.VISIBLE
+        }
+    }
+
+    private fun getDiffDateTime(startTime: Date): DateTime {
+        val cal =  Calendar.getInstance()
+        val today = cal.time
+        var diff = Duration.between(today.toInstant(), startTime.toInstant())
+        val days = diff.toDays()
+        diff = diff.minusDays(days)
+        val hours = diff.toHours()
+        diff = diff.minusHours(hours)
+        val minutes = diff.toMinutes()
+        diff = diff.minusMinutes(minutes)
+        val seconds = diff.toMillis() / 1000
+        return DateTime(days, hours, minutes, seconds)
+    }
+    private fun getCountDownDateTime(diff: DateTime): Calendar {
+        return Calendar.getInstance().apply {
+            timeInMillis = 0
+            set(Calendar.DATE, diff.days.toInt())
+            set(Calendar.HOUR_OF_DAY, diff.hours.toInt())
+            set(Calendar.MINUTE, diff.minutes.toInt())
+            set(Calendar.SECOND, diff.seconds.toInt())
+            set(Calendar.MILLISECOND, 0)
         }
     }
 }
