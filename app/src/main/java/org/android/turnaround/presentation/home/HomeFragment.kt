@@ -1,12 +1,10 @@
 package org.android.turnaround.presentation.home
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.OnBackPressedCallback
-import androidx.core.view.size
+import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import org.android.turnaround.R
@@ -15,6 +13,7 @@ import org.android.turnaround.domain.entity.Banner
 import org.android.turnaround.domain.entity.Kit
 import org.android.turnaround.domain.entity.Todo
 import org.android.turnaround.presentation.base.BaseFragment
+import java.util.*
 
 const val FILTER_MAIN_FREE = "무료"
 const val FILTER_MAIN_RECOMMEND = "추천"
@@ -47,15 +46,53 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     private fun setTodoAdapter() {
+        // D-2: 시작 시간: 48시간 뒤, 종료 시간: 48시간+2시간
+        val start1 =  Calendar.getInstance()
+        val end1 =  Calendar.getInstance()
+        start1.add(Calendar.DATE, 2)
+        end1.add(Calendar.DATE, 2)
+        end1.add(Calendar.HOUR_OF_DAY, 2)
+        // D-2: 시작 시간: 25시간 뒤, 종료 시간: 25시간+1시간
+        val start2 =  Calendar.getInstance()
+        val end2 =  Calendar.getInstance()
+        start2.add(Calendar.DATE, 1)
+        start2.add(Calendar.HOUR_OF_DAY, 1)
+        end2.add(Calendar.DATE, 1)
+        end2.add(Calendar.HOUR_OF_DAY, 2)
+        // 03:00:00: 시작 시간: 3시간 뒤, 종료 시간: 3시간+1시간 10분
+        val start3 =  Calendar.getInstance()
+        val end3 =  Calendar.getInstance()
+        start3.add(Calendar.HOUR_OF_DAY, 3)
+        end3.add(Calendar.HOUR_OF_DAY, 4)
+        end3.add(Calendar.MINUTE, 10)
+        // Black: 시작 시간: 지금 시작, 종료 시간: 현재+2시간
+        val start4 =  Calendar.getInstance()
+        val end4 =  Calendar.getInstance()
+        end4.add(Calendar.HOUR_OF_DAY, 2)
+        // 00:00:10: 시작 시간: 10초 뒤, 종료 시간: 현재+2시간
+        val start5 =  Calendar.getInstance()
+        start5.add(Calendar.SECOND, 10)
+        val end5 =  Calendar.getInstance()
+        end5.add(Calendar.HOUR_OF_DAY, 2)
+        // D-1 -> 00:00:10: 시작 시간: 1일+10초 뒤, 종료 시간: 현재+2시간
+        val start6 =  Calendar.getInstance()
+        start6.add(Calendar.DATE, 1)
+        start6.add(Calendar.SECOND, 10)
+        val end6 =  Calendar.getInstance()
+        end6.add(Calendar.DATE, 1)
+        end6.add(Calendar.HOUR_OF_DAY, 1)
+
         val todoArr = arrayListOf(
-            Todo("화장실", "곰팡이 청소1", "D-3"),
-            Todo("화장실", "곰팡이 청소2", "D-3"),
-            Todo("화장실", "곰팡이 청소3", "D-3"),
-            Todo("화장실", "곰팡이 청소4", "D-3"),
-            Todo("책상", "책상 정리","D-2"),
-            Todo("침대", "침대 정리", "20:15:33"),
-            Todo("화장실", "곰팡이 청소5", "20:15:33")
+            Todo("화장실", "D-1애서 바뀜", start6.time, end6.time),
+            Todo("화장실", "48시간 뒤", start1.time, end1.time),
+            Todo("화장실", "48시간 뒤", start1.time, end1.time),
+            Todo("화장실", "지금 시작", start4.time, end4.time),
+            Todo("화장실", "48시간 뒤", start1.time, end1.time),
+            Todo("화장실", "10초 뒤인지", start5.time, end5.time),
+            Todo("책상", "3시간 뒤", start3.time, end3.time),
+            Todo("화장실", "25시간 뒤", start2.time, end2.time)
         )
+        todoArr.sortBy{ it.startTime.time }
         binding.rvTodo.adapter = TodoAdapter().apply {
             submitList(todoArr)
         }
@@ -125,14 +162,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private fun setKitFilter() {
         // 메인 탭: 무료/추천
-        val black = "#000000"
-        val gray = "#e2e2e2"
+        val black = ContextCompat.getColor(requireContext(), R.color.black)
+        val gray =  ContextCompat.getColor(requireContext(), R.color.ta_e2e2e2)
         binding.tabMain.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 mainFilterValue = if (tab?.position == 0) FILTER_MAIN_FREE else FILTER_MAIN_RECOMMEND
                 startFiltering()
-                binding.tab1.setTextColor(Color.parseColor(if (tab?.position == 0) black else gray))
-                binding.tab2.setTextColor(Color.parseColor(if (tab?.position == 1) black else gray))
+                binding.tab1.setTextColor(if (tab?.position == 0) black else gray)
+                binding.tab2.setTextColor(if (tab?.position == 1) black else gray)
                 binding.ivTab1.visibility = if (tab?.position == 0) View.VISIBLE else View.INVISIBLE
                 binding.ivTab2.visibility = if (tab?.position == 1) View.VISIBLE else View.INVISIBLE
             }

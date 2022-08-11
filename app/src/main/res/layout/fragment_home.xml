@@ -60,12 +60,12 @@
                 tools:listitem="@layout/item_todo" />
 
             <ImageView
-                android:id="@+id/iv_room"
+                android:id="@+id/iv_bg_room"
                 android:layout_width="0dp"
                 android:layout_height="400dp"
                 android:layout_marginBottom="80dp"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/bg_home"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/rv_todo" />
@@ -82,19 +82,19 @@
                 android:id="@+id/view_banner_and_tab"
                 android:layout_width="0dp"
                 android:layout_height="110dp"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_room"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_bg_room" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_banner"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toBottomOf="@id/view_banner_and_tab"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/view_banner_and_tab"
-                app:layout_constraintBottom_toBottomOf="@id/view_banner_and_tab">
+                app:layout_constraintTop_toTopOf="@id/view_banner_and_tab">
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/vp_banner"
@@ -124,33 +124,43 @@
                 android:id="@+id/layout_main_tab"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:background="@drawable/bg_gradient_black"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@id/view_banner_and_tab"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/view_banner_and_tab"
-                app:layout_constraintBottom_toBottomOf="@id/view_banner_and_tab">
+                app:layout_constraintTop_toTopOf="@id/view_banner_and_tab">
 
-                <ImageView
+                <TextView
                     android:id="@+id/iv_tab1"
-                    android:layout_width="60dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:layout_height="20dp"
-                    android:scaleType="center"
+                    android:padding="3dp"
+                    android:background="@drawable/ic_tab_speech_bubble"
+                    android:gravity="center_horizontal"
+                    android:text="KIT 없이~"
+                    android:textColor="#000000"
+                    android:textSize="10sp"
+                    app:layout_constraintEnd_toEndOf="@id/tab1"
                     app:layout_constraintStart_toStartOf="@id/tab1"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:src="@drawable/ic_launcher_background"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
+                <TextView
                     android:id="@+id/iv_tab2"
-                    android:layout_width="60dp"
-                    android:layout_height="20dp"
-                    android:scaleType="center"
-                    android:visibility="invisible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
                     android:layout_marginTop="20dp"
+                    android:background="@drawable/ic_tab_speech_bubble"
+                    android:gravity="center_horizontal"
+                    android:text="효율성 갑"
+                    android:textColor="#000000"
+                    android:textSize="10sp"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="@id/tab2"
                     app:layout_constraintStart_toStartOf="@id/tab2"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:src="@drawable/ic_launcher_background"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tab_main"

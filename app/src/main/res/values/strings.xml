@@ -16,6 +16,7 @@
     <string name="description_home_toolbar_logo">홈 화면 툴바의 앱 로고</string>
     <string name="description_home_toolbar_user">홈 화면 툴바의 마이페이지 아이콘</string>
     <string name="description_home_floating_btn">카드 뷰 플로팅 버튼</string>
+    <string name="description_todo_badge">todo badge</string>
 
     <string-array name="home_category_arr">
         <item>전체</item>
