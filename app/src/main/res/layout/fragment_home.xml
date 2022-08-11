@@ -1,14 +1,316 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.home.HomeFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_View"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/back_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:contentDescription="@string/description_home_toolbar_logo"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_logo_white" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginHorizontal="18dp"
+                    android:layout_marginVertical="16dp"
+                    android:contentDescription="@string/description_home_toolbar_user"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_user_home" />
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_todo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:elevation="10dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="17dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                tools:listitem="@layout/item_todo" />
+
+            <ImageView
+                android:id="@+id/iv_bg_room"
+                android:layout_width="0dp"
+                android:layout_height="400dp"
+                android:layout_marginBottom="80dp"
+                android:contentDescription="@string/description_bg_room"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_home"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/rv_todo" />
+
+            <View
+                android:id="@+id/iv_bg_rv_todo"
+                android:layout_width="0dp"
+                android:layout_height="75dp"
+                android:background="#80cdcdcd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+            <ImageView
+                android:id="@+id/iv_room"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/description_bg_room"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bg_room_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/iv_bg_room"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_bg_rv_todo" />
+
+            <View
+                android:id="@+id/view_banner_and_tab"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_bg_room" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_banner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toBottomOf="@id/view_banner_and_tab"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/view_banner_and_tab">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_banner_indicator"
+                    style="@style/TextMedium10.White"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="19dp"
+                    android:background="@drawable/bg_black_r10_a30"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_main_tab"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_gradient_black"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@id/view_banner_and_tab"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/view_banner_and_tab">
+
+                <TextView
+                    android:id="@+id/iv_tab1"
+                    style="@style/TextMedium10.Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/ic_tab_speech_bubble"
+                    android:gravity="center_horizontal"
+                    android:padding="3dp"
+                    android:text="@string/label_main_tab1_bubble"
+                    app:layout_constraintEnd_toEndOf="@id/tab1"
+                    app:layout_constraintStart_toStartOf="@id/tab1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/iv_tab2"
+                    style="@style/TextMedium10.Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/ic_tab_speech_bubble"
+                    android:gravity="center_horizontal"
+                    android:padding="3dp"
+                    android:text="@string/label_main_tab2_bubble"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="@id/tab2"
+                    app:layout_constraintStart_toStartOf="@id/tab2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@android:color/transparent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_tab1"
+                    app:tabBackground="@drawable/bg_tab_underline"
+                    app:tabIndicator="@drawable/bg_tab_indicator"
+                    app:tabIndicatorColor="@color/black"
+                    app:tabIndicatorGravity="bottom"
+                    app:tabMode="scrollable"
+                    app:tabPaddingBottom="-15dp"
+                    app:tabPaddingEnd="10dp"
+                    app:tabPaddingStart="10dp"
+                    app:tabSelectedTextColor="@color/black"
+                    app:tabTextAppearance="@style/TextMedium10.Bold"
+                    app:tabTextColor="@color/ta_e2e2e2">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_home_main_tab1_sub_title" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_home_main_tab2_sub_title" />
+                </com.google.android.material.tabs.TabLayout>
+
+                <TextView
+                    android:id="@+id/tab1"
+                    style="@style/TextHeadline20.Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_home_main_tab1_title"
+                    app:layout_constraintEnd_toStartOf="@id/tab2"
+                    app:layout_constraintStart_toStartOf="@id/tab_main"
+                    app:layout_constraintTop_toBottomOf="@id/iv_tab1" />
+
+                <TextView
+                    android:id="@+id/tab2"
+                    style="@style/TextHeadline20.Bold.Gray"
+                    android:layout_width="50dp"
+                    android:layout_height="31dp"
+                    android:text="@string/label_home_main_tab2_title"
+                    app:layout_constraintEnd_toEndOf="@id/tab_main"
+                    app:layout_constraintStart_toEndOf="@id/tab1"
+                    app:layout_constraintTop_toBottomOf="@id/iv_tab2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_category"
+                style="@style/TextMedium15.Bold.White"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/bg_black_r10"
+                android:gravity="center"
+                android:paddingVertical="6dp"
+                app:layout_constraintBottom_toBottomOf="@id/tab_sub"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="전체" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_banner_and_tab"
+                app:tabBackground="@drawable/bg_tab_underline"
+                app:tabIndicator="@drawable/bg_tab_indicator"
+                app:tabIndicatorColor="@color/black"
+                app:tabIndicatorGravity="bottom"
+                app:tabIndicatorHeight="2dp"
+                app:tabPaddingBottom="-20dp"
+                app:tabPaddingEnd="6dp"
+                app:tabPaddingStart="6dp"
+                app:tabSelectedTextColor="@color/black"
+                app:tabTextAppearance="@style/TextMedium10.Bold"
+                app:tabTextColor="@color/black">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_home_sub_tab1" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_home_sub_tab2" />
+            </com.google.android.material.tabs.TabLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_kit"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="20dp"
+                android:nestedScrollingEnabled="true"
+                android:orientation="vertical"
+                android:overScrollMode="never"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="w, 1.58:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tab_sub"
+                tools:listitem="@layout/item_kit" />
+
+            <View
+                android:id="@+id/view_kit"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@id/vp_kit"
+                app:layout_constraintEnd_toEndOf="@id/vp_kit"
+                app:layout_constraintStart_toStartOf="@id/vp_kit"
+                app:layout_constraintTop_toTopOf="@id/tv_category" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btn_floating_kit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="55dp"
+                android:backgroundTint="@color/ta_black_a50"
+                android:contentDescription="@string/description_home_floating_btn"
+                android:src="@drawable/ic_floating_btn"
+                app:borderWidth="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:tint="@color/white" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

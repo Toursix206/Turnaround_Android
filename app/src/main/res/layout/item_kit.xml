@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="kit"
+            type="org.android.turnaround.domain.entity.Kit" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="w, 1.58:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_banner"
+                imageUrl="@{kit.bannerImage}"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_todo_gray_r20"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/Round15" />
+
+            <TextView
+                android:id="@+id/tv_badge"
+                style="@style/TextMedium12.Bold.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/bg_black_r3"
+                android:paddingHorizontal="18dp"
+                android:paddingVertical="4dp"
+                android:text="@{kit.badge}"
+                android:textAlignment="center"
+                app:layout_constraintStart_toStartOf="@id/iv_banner"
+                app:layout_constraintTop_toTopOf="@id/iv_banner"
+                tools:text="맞춤 KIT" />
+
+            <TextView
+                android:id="@+id/tv_category"
+                style="@style/TextMedium12.Bold.Gray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/bg_white_r3"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="@{kit.category}"
+                app:layout_constraintBottom_toTopOf="@id/tv_title"
+                app:layout_constraintStart_toStartOf="@id/tv_badge"
+                tools:text="화장실" />
+
+
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/TextHeadline34.Bold.White"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:ellipsize="end"
+                android:text="@{kit.title}"
+                app:layout_constraintBottom_toTopOf="@id/tv_label"
+                app:layout_constraintEnd_toEndOf="@id/tv_label"
+                app:layout_constraintStart_toStartOf="@id/tv_badge"
+                tools:text="팡이 팡이\n곰팡이" />
+
+            <TextView
+                android:id="@+id/tv_label"
+                style="@style/TextMedium16.White"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="21dp"
+                android:layout_marginBottom="57dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{kit.label}"
+                app:layout_constraintBottom_toBottomOf="@id/iv_banner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_badge"
+                tools:text="화장실에 꽃이 폈어요. 샤워하면서 제거!" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

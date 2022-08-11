@@ -2,4 +2,35 @@
     <string name="app_name">TurnAround</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!--home-->
+    <string name="label_home_main_tab1_sub_title">#기본 #지금당장</string>
+    <string name="label_home_main_tab2_sub_title">#더꼼꼼하고 #효과적인</string>
+    <string name="label_home_main_tab1_title">무료</string>
+    <string name="label_home_main_tab2_title">추천</string>
+    <string name="label_home_sub_tab1">최신순</string>
+    <string name="label_home_sub_tab2">인기순</string>
+    <string name="label_start_todo">활동시작</string>
+    <string name="label_main_tab1_bubble">KIT 없이~</string>
+    <string name="label_main_tab2_bubble">효율성 갑</string>
+
+    <!--Description-->
+    <string name="description_home_toolbar_logo">홈 화면 툴바의 앱 로고</string>
+    <string name="description_home_toolbar_user">홈 화면 툴바의 마이페이지 아이콘</string>
+    <string name="description_home_floating_btn">카드 뷰 플로팅 버튼</string>
+    <string name="description_todo_badge">todo badge</string>
+    <string name="description_bg_room">방 뒷배경</string>
+    <string name="description_banner_image">광고 배너 이미지</string>
+    <string name="description_start_todo_speech_bubble">활동 시각 말풍선</string>
+
+    <string-array name="home_category_arr">
+        <item>전체</item>
+        <item>책상</item>
+        <item>세탁기</item>
+        <item>화장실</item>
+        <item>주방</item>
+        <item>침대</item>
+        <item>창문</item>
+    </string-array>
 </resources>
