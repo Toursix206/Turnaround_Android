@@ -16,13 +16,12 @@
     <color name="ta_e2e2e2">#e2e2e2</color>
     <color name="ta_8f8a8a">#8f8a8a</color>
     <color name="ta_888f95">#888f95</color>
-    <color name="ta_purple_gray_a30_4c291147">#4c291147</color>
-    <color name="ta_yellow_FDD160">#FDD160</color>
     <color name="ta_291147_a30">#4c291147</color>
     <color name="ta_black_a50">#80000000</color>
     <color name="ta_fdd160">#FDD160</color>
     <color name="ta_d9d9d9">#d9d9d9</color>
     <color name="ta_b235ff">#b235ff</color>
     <color name="ta_494a4a">#494a4a</color>
-    <color name="ta_671fff">#671fff</color>
+    <color name="ta_ffca42">#ffca42</color>
+    <color name="ta_fcfcfc">#fcfcfc</color>
 </resources>

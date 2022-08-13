@@ -3,13 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_black_r10.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_black_r20.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_black_r30.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_black_r5.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_darkgray_r10.xml" value="0.1595" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_gradient_9ba5ff_d2fff7.xml" value="0.1575" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_gradient_black.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_gray_r20.xml" value="0.1595" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_gray_r30.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_gray_r5.xml" value="0.1575" />
@@ -22,17 +19,7 @@
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_todo_gray_r20.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_todo_purple_r20.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_transparent.xml" value="0.1595" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_white_r3.xml" value="0.1575" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_white_r30.xml" value="0.1575" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/bg_white_r50.xml" value="0.1575" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/ic_checkbox_checked.xml" value="0.1575" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/ic_checkbox_unchecked.xml" value="0.1575" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1575" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/ic_left.xml" value="0.1575" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/ic_red_badge.xml" value="0.1575" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/ic_reviews.xml" value="0.1235" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/progressbar_level.xml" value="0.1575" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/progressbar_score.xml" value="0.1575" />
+
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/selected_viewpager_indicator.xml" value="0.1595" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/selector_btn_next.xml" value="0.1575" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/drawable/selector_checkbox.xml" value="0.1575" />
@@ -47,32 +34,22 @@
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_contact_us.xml" value="0.25364583333333335" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_detail.xml" value="0.25364583333333335" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_home.xml" value="0.264" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_my_order.xml" value="0.25364583333333335" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_my_page.xml" value="0.25364583333333335" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_my_review.xml" value="0.25364583333333335" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_order_filter.xml" value="0.25364583333333335" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_purchase.xml" value="0.25364583333333335" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_review_write.xml" value="0.25364583333333335" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_room_setting.xml" value="0.264" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_room_setting_step1.xml" value="0.2" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_room_setting_step2.xml" value="0.25364583333333335" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_setting.xml" value="0.25364583333333335" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_work_info.xml" value="0.25364583333333335" />
+
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_work_review.xml" value="0.25364583333333335" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_working.xml" value="0.25364583333333335" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_banner.xml" value="0.264" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_kit.xml" value="0.2526041666666667" />
-        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_todo.xml" value="0.6" />
+
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_todo_title.xml" value="0.25364583333333335" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_work.xml" value="0.176" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_work_home.xml" value="0.2490740740740741" />
-        <entry key="app/src/main/res/drawable/bg_stroke_10.xml" value="0.262" />
+
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.30307262569832405" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2677083333333333" />
         <entry key="app/src/main/res/layout/fragment_address_info_input.xml" value="0.35885416666666664" />
         <entry key="app/src/main/res/layout/fragment_address_search_dialog.xml" value="0.3151041666666667" />
         <entry key="app/src/main/res/layout/fragment_basic_info_input.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.3729166666666667" />
+
       </map>
     </option>
   </component>

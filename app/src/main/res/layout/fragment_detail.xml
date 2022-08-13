@@ -12,21 +12,53 @@
         android:layout_height="match_parent"
         tools:context=".presentation.detail.DetailFragment">
 
-
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/coordinator_record"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_top"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="48dp"
+            android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/ic_white_left"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="키트 상세"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinator_kit"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:animateLayoutChanges="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_top">
+
             <com.google.android.material.appbar.AppBarLayout
-                android:id="@+id/ab_record"
+                android:id="@+id/ab_kit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
                 app:elevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -35,92 +67,269 @@
                 <com.google.android.material.appbar.CollapsingToolbarLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed|enterAlways">
 
 
                     <ImageView
                         android:id="@+id/iv_kit"
                         android:layout_width="match_parent"
-                        android:layout_height="300dp"
-                        android:src="@color/black"
+                        android:layout_height="225dp"
+                        android:importantForAccessibility="no"
+                        android:src="@color/purple_200"
                         app:layout_collapseMode="parallax"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
             </com.google.android.material.appbar.AppBarLayout>
 
             <androidx.core.widget.NestedScrollView
+                android:id="@+id/nv_behavior"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="-23dp"
+                android:overScrollMode="never"
+                android:background="@drawable/bg_radius_top_20"
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_bottom"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+                    android:background="@drawable/bg_radius_top_20">
+
+
+                    <TextView
+                        android:id="@+id/tv_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="29dp"
+                        android:layout_marginTop="40dp"
+                        android:background="@drawable/bg_black_r3"
+                        android:paddingHorizontal="18dp"
+                        android:paddingVertical="4dp"
+                        android:text="침대"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_work"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/bg_black_r3"
+                        android:paddingHorizontal="18dp"
+                        android:paddingVertical="4dp"
+                        android:text="무료활동"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toEndOf="@id/tv_category"
+                        app:layout_constraintTop_toTopOf="@id/tv_category" />
+
 
                     <TextView
                         android:id="@+id/tv_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="쓰레기가 너무 많아"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/notosans_bold"
+                        android:includeFontPadding="false"
+                        android:text="책상에 쓰레기가 너무 많아!\n10분 만에 쾌적하게 공부하기"
+                        android:textColor="@color/black"
+                        android:textSize="24dp"
+                        app:layout_constraintStart_toStartOf="@id/tv_category"
+                        app:layout_constraintTop_toBottomOf="@id/tv_work" />
 
-                    <ProgressBar
-                        android:id="@+id/pb_score"
-                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                        android:layout_width="0dp"
-                        android:layout_height="8dp"
-                        android:layout_marginTop="18dp"
-                        android:layout_marginEnd="20dp"
-                        android:background="@android:color/transparent"
-                        android:indeterminate="false"
-                        android:max="100"
-                        android:progress="30"
-                        android:progressDrawable="@drawable/progressbar_score"
-                        app:layout_constraintEnd_toEndOf="parent"
+                    <TextView
+                        android:id="@+id/tv_clean"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="청결도"
                         app:layout_constraintStart_toStartOf="@id/tv_title"
                         app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
                     <TextView
-                        android:id="@+id/tv_time"
+                        android:id="@+id/tv_score"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ㅁㄴㅇㄹ"
-                        app:layout_constraintStart_toStartOf="@id/pb_score"
-                        app:layout_constraintTop_toBottomOf="@id/pb_score" />
+                        android:background="@drawable/bg_rectangle_r10_ffca42"
+                        android:paddingHorizontal="4dp"
+                        android:text="+10점"
+                        app:layout_constraintStart_toEndOf="@id/tv_clean"
+                        app:layout_constraintTop_toTopOf="@id/tv_clean" />
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btn_work_start"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="free"
+                        app:layout_constraintStart_toEndOf="@id/tv_score"
+                        app:layout_constraintTop_toTopOf="@id/tv_score" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_info"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_rectangle_r10_fcfcfc"
+                        android:elevation="2dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_time" />
+                        app:layout_constraintTop_toBottomOf="@id/tv_clean">
+
+                        <ImageView
+                            android:id="@+id/iv_user"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="13dp"
+                            android:src="@drawable/ic_user"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="오늘 32명이 턴어라운드 했습니다."
+                            app:layout_constraintStart_toEndOf="@id/iv_user"
+                            app:layout_constraintTop_toTopOf="@id/iv_user" />
+
+                        <ImageView
+                            android:id="@+id/iv_review"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/ic_coin"
+                            app:layout_constraintStart_toStartOf="@id/iv_user"
+                            app:layout_constraintTop_toBottomOf="@id/iv_user" />
+
+                        <TextView
+                            android:id="@+id/tv_review"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="리뷰 작성시"
+                            app:layout_constraintStart_toEndOf="@id/iv_review"
+                            app:layout_constraintTop_toTopOf="@id/iv_review" />
+
+                        <ImageView
+                            android:id="@+id/iv_point"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_score_purple"
+                            app:layout_constraintStart_toEndOf="@id/tv_review"
+                            app:layout_constraintTop_toTopOf="@id/tv_review" />
+
+                        <TextView
+                            android:id="@+id/tv_point"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="6"
+                            app:layout_constraintStart_toEndOf="@id/iv_point"
+                            app:layout_constraintTop_toTopOf="@id/iv_point" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="적립"
+                            app:layout_constraintStart_toEndOf="@id/tv_point"
+                            app:layout_constraintTop_toTopOf="@id/tv_point" />
+
+                        <ImageView
+                            android:id="@+id/iv_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="13dp"
+                            android:src="@drawable/ic_timer"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/iv_review"
+                            app:layout_constraintTop_toBottomOf="@id/iv_review" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="30분"
+                            app:layout_constraintStart_toEndOf="@id/iv_time"
+                            app:layout_constraintTop_toTopOf="@id/iv_time" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_rocket"
+                        app:layout_constraintStart_toStartOf="@id/cl_info"
+                        app:layout_constraintTop_toBottomOf="@id/cl_info" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="이 활동으로 턴어라운드할까요?"
+                        app:layout_constraintStart_toEndOf="@id/iv_start"
+                        app:layout_constraintTop_toTopOf="@id/iv_start" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_work_now"
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/bg_rectangle_r40_671fff"
+                        android:text="바로 시작하기"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toStartOf="@id/btn_work_delay"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toStartOf="@id/iv_start"
+                        app:layout_constraintTop_toBottomOf="@id/iv_start" />
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_work_delay"
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/bg_stroke_r40_671fff"
+                        android:text="나중에 하기"
+                        android:textColor="@color/ta_671fff"
+                        app:layout_constraintEnd_toEndOf="@id/cl_info"
+                        app:layout_constraintHorizontal_weight="1.5"
+                        app:layout_constraintStart_toEndOf="@id/btn_work_now"
+                        app:layout_constraintTop_toTopOf="@id/btn_work_now" />
 
                     <com.google.android.material.tabs.TabLayout
                         android:id="@+id/tl_detail"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
+                        style="@style/TabLayout"
+                        android:layout_marginTop="10dp"
+                        app:tabTextAppearance="@style/GuideUnselectedTabText"
+                        app:tabBackground="@drawable/tab_indicator_background"
+                        app:tabIndicator="@drawable/tab_indicator"
                         android:layout_height="wrap_content"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/btn_work_start" />
+                        app:tabRippleColor="@android:color/transparent"
+                        app:layout_constraintEnd_toEndOf="@id/btn_work_delay"
+                        app:layout_constraintStart_toStartOf="@id/btn_work_now"
+                        app:layout_constraintTop_toBottomOf="@id/btn_work_now" />
 
                     <androidx.viewpager2.widget.ViewPager2
                         android:id="@+id/vp_detail"
-                        android:layout_width="match_parent"
-                        android:layout_height="300dp"
+                        android:layout_width="0dp"
+                        android:layout_height="280dp"
+                        android:layout_marginHorizontal="36dp"
+                        android:layout_marginTop="19dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintDimensionRatio="1:1"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tl_detail" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.core.widget.NestedScrollView>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
