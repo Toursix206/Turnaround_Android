@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data></data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_x"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/ic_cancel"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:background="@drawable/bg_gradient_9ba5ff_d2fff7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_app_bar">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@android:style/Widget.Material.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:max="2"
+                android:progress="0"
+                android:progressBackgroundTint="@color/white"
+                android:progressTint="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_step1"
+                style="@style/TextMedium10.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="90dp"
+                android:text="Step1."
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_step1_label"
+                style="@style/TextHeadline20.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="내 방 구조"
+                app:layout_constraintStart_toStartOf="@id/tv_step1"
+                app:layout_constraintTop_toBottomOf="@id/tv_step1" />
+
+            <TextView
+                android:id="@+id/tv_step1_explain"
+                style="@style/TextMedium15.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:text="천장에서 내려다 본\n내 방의 구조를 선택해 주세요."
+                app:layout_constraintStart_toStartOf="@id/tv_step1"
+                app:layout_constraintTop_toBottomOf="@id/tv_step1_label" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="224dp"
+            android:background="@drawable/bg_radius_top_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_app_bar">
+
+            <View
+                android:id="@+id/view_a"
+                android:layout_width="129dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="39dp"
+                android:background="@drawable/bg_gray_r5"
+                app:layout_constraintEnd_toStartOf="@id/view_b"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cb_a"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:button="@drawable/selector_checkbox"
+                app:layout_constraintBottom_toBottomOf="@id/view_a"
+                app:layout_constraintEnd_toEndOf="@id/view_a" />
+
+            <TextView
+                android:id="@+id/tv_a"
+                style="@style/TextMedium15.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginTop="18dp"
+                android:text="정사각형(A형)"
+                app:layout_constraintEnd_toEndOf="@id/view_a"
+                app:layout_constraintStart_toStartOf="@id/view_a"
+                app:layout_constraintTop_toTopOf="@id/view_a" />
+
+            <View
+                android:id="@+id/view_b"
+                android:layout_width="129dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="39dp"
+                android:background="@drawable/bg_gray_r5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/view_a"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cb_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/selector_checkbox"
+                app:layout_constraintBottom_toBottomOf="@id/view_b"
+                app:layout_constraintEnd_toEndOf="@id/view_b" />
+
+            <TextView
+                android:id="@+id/tv_b"
+                style="@style/TextMedium15.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginTop="18dp"
+                android:text="직사각형(B형)"
+                app:layout_constraintEnd_toEndOf="@id/view_b"
+                app:layout_constraintStart_toStartOf="@id/view_b"
+                app:layout_constraintTop_toTopOf="@id/view_b" />
+
+            <View
+                android:id="@+id/view_c"
+                android:layout_width="129dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_gray_r5"
+                app:layout_constraintEnd_toStartOf="@id/view_b"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_a" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cb_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/selector_checkbox"
+                app:layout_constraintBottom_toBottomOf="@id/view_c"
+                app:layout_constraintEnd_toEndOf="@id/view_c" />
+
+            <TextView
+                android:id="@+id/tv_c"
+                style="@style/TextMedium15.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginTop="18dp"
+                android:text="복층형(C형)"
+                app:layout_constraintEnd_toEndOf="@id/view_c"
+                app:layout_constraintStart_toStartOf="@id/view_c"
+                app:layout_constraintTop_toTopOf="@id/view_c" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_back"
+                style="@style/TextMedium15.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="23dp"
+                android:background="@drawable/bg_white_r30"
+                android:drawableStart="@drawable/ic_left_thin"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="15dp"
+                android:text="이전"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="w, 2:1"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_next"
+                style="@style/TextMedium15.Bold.White"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="23dp"
+                android:background="@drawable/selector_btn_next"
+                android:drawableEnd="@drawable/ic_right_thin"
+                android:enabled="false"
+                android:paddingHorizontal="22dp"
+                android:paddingVertical="15dp"
+                android:text="다음"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btn_back" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

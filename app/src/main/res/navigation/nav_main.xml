@@ -9,7 +9,11 @@
         android:id="@+id/homeFragment"
         android:name="org.android.turnaround.presentation.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_roomSettingFragment"
+            app:destination="@id/roomSettingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="org.android.turnaround.presentation.login.LoginFragment"
@@ -49,4 +53,27 @@
         android:id="@+id/contactUsFragment"
         android:name="org.android.turnaround.presentation.mypage.ContactUsFragment"
         android:label="ContactUsFragment" />
+    <fragment
+        android:id="@+id/roomSettingFragment"
+        android:name="org.android.turnaround.presentation.roomsetting.RoomSettingFragment"
+        android:label="RoomSettingFragment"
+        tools:layout="@layout/fragment_room_setting">
+        <action
+            android:id="@+id/action_roomSettingFragment_to_roomSettingStep1Fragment"
+            app:destination="@id/roomSettingStep1Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomSettingStep1Fragment"
+        android:name="org.android.turnaround.presentation.roomsetting.RoomSettingStep1Fragment"
+        android:label="RoomSettingStep1Fragment"
+        tools:layout="@layout/fragment_room_setting_step1">
+        <action
+            android:id="@+id/action_roomSettingStep1Fragment_to_roomSettingStep2Fragment"
+            app:destination="@id/roomSettingStep2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomSettingStep2Fragment"
+        android:name="org.android.turnaround.presentation.roomsetting.RoomSettingStep2Fragment"
+        android:label="RoomSettingStep2Fragment"
+        tools:layout="@layout/fragment_room_setting_step2"/>
 </navigation>
