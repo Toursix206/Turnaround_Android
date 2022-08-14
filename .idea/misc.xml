@@ -34,12 +34,31 @@
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_contact_us.xml" value="0.25364583333333335" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_detail.xml" value="0.25364583333333335" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+<<<<<<< HEAD
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_my_order.xml" value="0.25364583333333335" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_my_page.xml" value="0.25364583333333335" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_my_review.xml" value="0.25364583333333335" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_order_filter.xml" value="0.25364583333333335" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_purchase.xml" value="0.25364583333333335" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_review_write.xml" value="0.25364583333333335" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_room_setting.xml" value="0.264" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_room_setting_step1.xml" value="0.2" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_room_setting_step2.xml" value="0.264" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_setting.xml" value="0.25364583333333335" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_work_info.xml" value="0.25364583333333335" />
+=======
 
+>>>>>>> 8beba4349bdc6d0b87370977c0de2c6c052ac705
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_work_review.xml" value="0.25364583333333335" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/fragment_working.xml" value="0.25364583333333335" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_banner.xml" value="0.264" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_kit.xml" value="0.2526041666666667" />
+<<<<<<< HEAD
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_room_setting.xml" value="0.2526041666666667" />
+        <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_todo.xml" value="0.6" />
+=======
 
+>>>>>>> 8beba4349bdc6d0b87370977c0de2c6c052ac705
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_todo_title.xml" value="0.25364583333333335" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_work.xml" value="0.176" />
         <entry key="..\:/Study/Android/TurnAround/Turnaround_Android/app/src/main/res/layout/item_work_home.xml" value="0.2490740740740741" />
