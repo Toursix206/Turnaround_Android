@@ -1,17 +1,19 @@
 package org.android.turnaround.presentation.roomsetting
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import org.android.turnaround.R
 import org.android.turnaround.databinding.ItemRoomSettingBinding
 import org.android.turnaround.domain.entity.RoomSetting
 
-class RoomSettingStep2Adapter(var arrRoomSetting: ArrayList<RoomSetting>): RecyclerView.Adapter<RoomSettingStep2Adapter.ViewHolder>() {
+class RoomSettingStep2Adapter(var arrRoomSetting: ArrayList<RoomSetting>, val frag: Fragment): RecyclerView.Adapter<RoomSettingStep2Adapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoomSettingStep2Adapter.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return ViewHolder(ItemRoomSettingBinding.inflate(inflater, parent, false))
@@ -36,6 +38,7 @@ class RoomSettingStep2Adapter(var arrRoomSetting: ArrayList<RoomSetting>): Recyc
             binding.cb.setOnCheckedChangeListener { _, isChecked ->
                 if(isChecked) setCheckedView(binding.layoutBg, binding.tvTitle, binding.cb, position)
                 else setUnCheckedView(binding.layoutBg, binding.tvTitle, binding.cb, position)
+                (frag as RoomSettingStep2Fragment).checkNextButtonEnable()
             }
             binding.layoutBg.setOnClickListener { binding.cb.isChecked = !binding.cb.isChecked }
         }

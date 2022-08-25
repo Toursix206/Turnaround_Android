@@ -36,6 +36,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        findNavController().navigate(R.id.action_homeFragment_to_roomSettingFragment)
+
         setTodoAdapter()
         setBannerAdapter()
         setKitAdapter()
