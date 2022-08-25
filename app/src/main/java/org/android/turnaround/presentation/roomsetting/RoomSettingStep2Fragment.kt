@@ -35,13 +35,13 @@ class RoomSettingStep2Fragment : BaseFragment<FragmentRoomSettingStep2Binding>(R
             RoomSetting("컴퓨터", false))
         val arrEx = arrayListOf(RoomSetting("주방", false), RoomSetting("화장실", false),
             RoomSetting("창문", false))
-        binding.rv1.adapter = RoomSettingStep2Adapter(arrBed)
-        binding.rv2.adapter = RoomSettingStep2Adapter(arrWashing)
-        binding.rv3.adapter = RoomSettingStep2Adapter(arrOffice)
-        binding.rv4.adapter = RoomSettingStep2Adapter(arrEx)
+        binding.rv1.adapter = RoomSettingStep2Adapter(arrBed, this)
+        binding.rv2.adapter = RoomSettingStep2Adapter(arrWashing, this)
+        binding.rv3.adapter = RoomSettingStep2Adapter(arrOffice, this)
+        binding.rv4.adapter = RoomSettingStep2Adapter(arrEx, this)
     }
 
-    private fun checkNextButtonEnable() {
+    fun checkNextButtonEnable() {
         val result1 = (binding.rv1.adapter as RoomSettingStep2Adapter).getCheckedItems()
         val result2 = (binding.rv2.adapter as RoomSettingStep2Adapter).getCheckedItems()
         val result3 = (binding.rv3.adapter as RoomSettingStep2Adapter).getCheckedItems()
@@ -93,7 +93,6 @@ class RoomSettingStep2Fragment : BaseFragment<FragmentRoomSettingStep2Binding>(R
                 else startVisibilityAnimation(binding.layoutExpand4, binding.ivArrow4, false)
             }
         }
-        checkNextButtonEnable()
     }
 
 }
