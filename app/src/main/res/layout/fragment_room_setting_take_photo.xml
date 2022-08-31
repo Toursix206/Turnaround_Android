@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <SurfaceView
+            android:id="@+id/surface_view"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title2" />
+
+        <!--title text-->
+        <TextView
+            android:id="@+id/tv_title1"
+            style="@style/TextMedium16.White"
+            android:layout_width="0dp"
+            android:layout_marginTop="60dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="방 중앙에 서서 천장 몰딩을 맞춰주세요." />
+
+        <TextView
+            android:id="@+id/tv_title2"
+            style="@style/TextMedium16.White"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title1"
+            tools:text="준비가되면 촬영버튼을 눌러 순서대로 진행해주세요." />
+
+        <!--guild line-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_guild_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/surface_view"
+            app:layout_constraintEnd_toEndOf="@id/surface_view"
+            app:layout_constraintStart_toStartOf="@id/surface_view"
+            app:layout_constraintTop_toTopOf="@id/surface_view">
+
+            <View
+                android:id="@+id/guide_line"
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/ta_671fff"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/gl_horizontal1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/gl_horizontal2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/gl_horizontal2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gl_horizontal1" />
+
+            <View
+                android:id="@+id/gl_vertical1"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/gl_vertical2"
+                app:layout_constraintHorizontal_weight="2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/gl_vertical2"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/gl_vertical1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                style="@style/TextMedium14.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="4dp"
+                android:text="천장 몰딩"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guide_line" />
+
+            <TextView
+                style="@style/TextMedium14.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:text="책상 높이"
+                app:layout_constraintBottom_toBottomOf="@id/gl_horizontal2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/gl_horizontal1" />
+
+            <TextView
+                style="@style/TextMedium14.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:text="침대 높이"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/gl_horizontal2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_count_photo"
+            style="@style/TextMedium10.White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="0/4"
+            app:layout_constraintEnd_toEndOf="@id/surface_view"
+            app:layout_constraintTop_toBottomOf="@id/surface_view" />
+
+        <ImageView
+            android:id="@+id/ic_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/ic_camera"
+            app:layout_constraintEnd_toEndOf="@id/iv_room1"
+            app:layout_constraintStart_toStartOf="@id/iv_room1"
+            app:layout_constraintTop_toTopOf="@id/iv_room1" />
+
+        <TextView
+            android:id="@+id/tv_count_photo_image"
+            style="@style/TextMedium10.671FFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="촬영1"
+            app:layout_constraintBottom_toBottomOf="@id/iv_room1"
+            app:layout_constraintEnd_toEndOf="@id/iv_room1"
+            app:layout_constraintStart_toStartOf="@id/iv_room1" />
+
+        <ImageView
+            android:id="@+id/iv_room1"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="0.5dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@id/iv_room2"
+            app:layout_constraintEnd_toStartOf="@id/iv_room2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_room2" />
+
+        <ImageView
+            android:id="@+id/iv_room1_rec"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="0.5dp"
+            android:background="@drawable/bg_rectangle_a87eff"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@id/iv_room2"
+            app:layout_constraintEnd_toStartOf="@id/iv_room2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_room2" />
+
+        <ImageView
+            android:id="@+id/iv_room2"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="0.5dp"
+            android:background="@color/ta_671fff"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@id/iv_room3"
+            app:layout_constraintEnd_toStartOf="@id/iv_room3"
+            app:layout_constraintStart_toEndOf="@id/iv_room1"
+            app:layout_constraintTop_toTopOf="@id/iv_room3" />
+
+        <ImageView
+            android:id="@+id/iv_room2_rec"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_rectangle_a87eff"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/iv_room3"
+            app:layout_constraintEnd_toStartOf="@id/iv_room3"
+            app:layout_constraintStart_toEndOf="@id/iv_room1"
+            app:layout_constraintTop_toTopOf="@id/iv_room3" />
+
+        <ImageView
+            android:id="@+id/iv_room3"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="0.5dp"
+            android:background="@color/ta_671fff"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@id/iv_room4"
+            app:layout_constraintEnd_toStartOf="@id/iv_room4"
+            app:layout_constraintStart_toEndOf="@id/iv_room2"
+            app:layout_constraintTop_toTopOf="@id/iv_room4" />
+
+        <ImageView
+            android:id="@+id/iv_room3_rec"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_rectangle_a87eff"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/iv_room4"
+            app:layout_constraintEnd_toStartOf="@id/iv_room4"
+            app:layout_constraintStart_toEndOf="@id/iv_room2"
+            app:layout_constraintTop_toTopOf="@id/iv_room4" />
+
+        <ImageView
+            android:id="@+id/iv_room4"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="0.5dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/ta_671fff"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_room3"
+            app:layout_constraintTop_toBottomOf="@id/tv_count_photo" />
+
+        <ImageView
+            android:id="@+id/iv_room4_rec"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_rectangle_a87eff"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/iv_room4"
+            app:layout_constraintEnd_toEndOf="@id/iv_room4"
+            app:layout_constraintStart_toEndOf="@id/iv_room3"
+            app:layout_constraintTop_toTopOf="@id/iv_room4" />
+
+        <ImageView
+            android:id="@+id/iv_note1"
+            android:layout_width="160dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_home"
+            app:layout_constraintEnd_toStartOf="@id/iv_note2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_room1" />
+
+        <TextView
+            android:id="@+id/tv_note1"
+            style="@style/TextMedium12.White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="방의 중앙에서 촬영하세요."
+            app:layout_constraintEnd_toEndOf="@id/iv_note1"
+            app:layout_constraintStart_toStartOf="@id/iv_note1"
+            app:layout_constraintTop_toBottomOf="@id/iv_note1" />
+
+        <ImageView
+            android:id="@+id/iv_note2"
+            android:layout_width="160dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_home"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_note1"
+            app:layout_constraintTop_toBottomOf="@id/iv_room1" />
+
+        <TextView
+            android:id="@+id/tv_note2"
+            style="@style/TextMedium12.White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="방 가구가 나오게 촬영하세요."
+            app:layout_constraintEnd_toEndOf="@id/iv_note2"
+            app:layout_constraintStart_toStartOf="@id/iv_note2"
+            app:layout_constraintTop_toBottomOf="@id/iv_note2" />
+
+        <Button
+            android:id="@+id/btn_take_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_purple_r30"
+            android:paddingHorizontal="58dp"
+            android:paddingVertical="12dp"
+            android:text="촬영 시작"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_note2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

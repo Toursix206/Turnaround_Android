@@ -11,8 +11,8 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_roomSettingFragment"
-            app:destination="@id/roomSettingFragment" />
+            android:id="@+id/action_homeFragment_to_roomSettingTakePhotoFragment"
+            app:destination="@id/roomSettingTakePhotoFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -76,4 +76,13 @@
         android:name="org.android.turnaround.presentation.roomsetting.RoomSettingStep2Fragment"
         android:label="RoomSettingStep2Fragment"
         tools:layout="@layout/fragment_room_setting_step2"/>
+    <fragment
+        android:id="@+id/roomSettingTakePhotoFragment"
+        android:name="org.android.turnaround.presentation.roomsetting.RoomSettingTakePhotoFragment"
+        android:label="RoomSettingTakePhotoFragment"
+        tools:layout="@layout/fragment_room_setting_take_photo">
+        <action
+            android:id="@+id/action_roomSettingTakePhotoFragment2_to_roomSettingFragment"
+            app:destination="@id/roomSettingFragment" />
+    </fragment>
 </navigation>
