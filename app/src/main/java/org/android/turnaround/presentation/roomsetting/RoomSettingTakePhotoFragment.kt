@@ -43,10 +43,12 @@ class RoomSettingTakePhotoFragment :  BaseFragment<FragmentRoomSettingTakePhotoB
         when(step) {
             0 -> {
                 // 1. text 변경
-                val text1 = "방 중앙에 서서 <font color=#a87eff>천장 몰딩</font>을 맞춰주세요."
-                val text2 = "준비가되면 촬영버튼을 눌러 순서대로 진행해주세요."
-                binding.tvTitle1.text =  Html.fromHtml(text1, Html.FROM_HTML_MODE_LEGACY)
-                binding.tvTitle2.text =  text2
+                val tvTitle1 = "방 중앙에 서서 <font color=#a87eff>천장 몰딩</font>을 맞춰주세요."
+                binding.tvTitle1.text = Html.fromHtml(tvTitle1, Html.FROM_HTML_MODE_LEGACY)
+                binding.tvTitle2.text =   "준비가되면 촬영버튼을 눌러 순서대로 진행해주세요."
+                // 2. surface view text
+                val tvSurface = "<font color=#671fff>좌측</font>에서 <font color=#671fff>우측</font>으로 촬영을 진행해주세요"
+                binding.tvSurfaceView.text =  Html.fromHtml(tvSurface, Html.FROM_HTML_MODE_LEGACY)
             }
             1 -> {
                 // 1. text 변경
@@ -61,6 +63,10 @@ class RoomSettingTakePhotoFragment :  BaseFragment<FragmentRoomSettingTakePhotoB
                 moveCameraView(binding.ivRoom2.id)
                 // 4. 촬영한 bitmap 넣기
                 binding.ivRoom1.setImageBitmap(bitmap)
+                // 5. text count 변경
+                binding.tvCountPhoto.text = "1/4"
+                // 6. 버튼 count 변경
+                binding.btnTakePhoto.text = "촬영하기(1/4)"
             }
             2 -> {
                 // 1. text 변경 없음
@@ -72,6 +78,10 @@ class RoomSettingTakePhotoFragment :  BaseFragment<FragmentRoomSettingTakePhotoB
                 // 4. 촬영한 bitmap 넣기
                 binding.ivRoom2.setImageBitmap(bitmap)
                 binding.ivRoom2Rec.visibility = View.VISIBLE
+                // 5. text count 변경
+                binding.tvCountPhoto.text = "2/4"
+                // 6. 버튼 count 변경
+                binding.btnTakePhoto.text = "촬영하기(2/4)"
             }
             3 -> {
                 // 1. text 변경
@@ -87,6 +97,10 @@ class RoomSettingTakePhotoFragment :  BaseFragment<FragmentRoomSettingTakePhotoB
                 // 4. 촬영한 bitmap 넣기
                 binding.ivRoom3.setImageBitmap(bitmap)
                 binding.ivRoom3Rec.visibility = View.VISIBLE
+                // 5. text count 변경
+                binding.tvCountPhoto.text = "3/4"
+                // 6. 버튼 count 변경
+                binding.btnTakePhoto.text = "촬영하기(3/4)"
             }
             4 -> {
                 // 1. text 그대로
@@ -95,6 +109,13 @@ class RoomSettingTakePhotoFragment :  BaseFragment<FragmentRoomSettingTakePhotoB
                 // 4. 촬영한 bitmap 넣기
                 binding.ivRoom4.setImageBitmap(bitmap)
                 binding.ivRoom4Rec.visibility = View.VISIBLE
+                // 5. text count 변경
+                binding.tvCountPhoto.text = "4/4"
+                // 6. 버튼 text 변경
+                binding.btnTakePhoto.text = "턴어라운드 완료!"
+                // 7. surface image, text 변경
+                binding.ivSurfaceView.setImageResource(R.drawable.ic_checking_success)
+                binding.tvSurfaceView.text = Html.fromHtml("<font color=#67b321>완료</font>", Html.FROM_HTML_MODE_LEGACY)
             }
         }
     }

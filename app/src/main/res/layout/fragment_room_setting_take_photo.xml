@@ -28,8 +28,8 @@
             android:id="@+id/tv_title1"
             style="@style/TextMedium16.White"
             android:layout_width="0dp"
-            android:layout_marginTop="60dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -139,6 +139,29 @@
                 app:layout_constraintTop_toTopOf="@id/gl_horizontal2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/iv_surface_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_checking_success"
+            android:layout_marginBottom="14dp"
+            app:layout_constraintTop_toTopOf="@id/surface_view"
+            app:layout_constraintStart_toStartOf="@id/surface_view"
+            app:layout_constraintBottom_toBottomOf="@id/surface_view"
+            app:layout_constraintEnd_toEndOf="@id/constraint_layout"/>
+
+        <TextView
+            android:id="@+id/tv_surface_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextMedium14"
+            android:layout_marginTop="14dp"
+            app:layout_constraintStart_toStartOf="@id/iv_surface_view"
+            app:layout_constraintEnd_toEndOf="@id/iv_surface_view"
+            app:layout_constraintTop_toBottomOf="@id/iv_surface_view"
+            android:text="좌측에서 우측로 촬영을 진행해주세요"/>
+
 
         <TextView
             android:id="@+id/tv_count_photo"
@@ -310,18 +333,35 @@
             app:layout_constraintStart_toStartOf="@id/iv_note2"
             app:layout_constraintTop_toBottomOf="@id/iv_note2" />
 
-        <Button
-            android:id="@+id/btn_take_photo"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_cancel"
+            style="@style/TextMedium14.671FFF"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="23dp"
+            android:background="@drawable/bg_white_r30"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="15dp"
+            android:text="취소"
+            app:layout_constraintTop_toTopOf="@id/tv_note1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="w, 2:1"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_take_photo"
+            style="@style/TextMedium15.Bold.White"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="23dp"
             android:background="@drawable/bg_purple_r30"
-            android:paddingHorizontal="58dp"
-            android:paddingVertical="12dp"
-            android:text="촬영 시작"
+            android:text="촬영하기 (0/4)"
+            app:layout_constraintTop_toTopOf="@id/tv_note2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_note2" />
+            app:layout_constraintStart_toEndOf="@id/btn_cancel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
