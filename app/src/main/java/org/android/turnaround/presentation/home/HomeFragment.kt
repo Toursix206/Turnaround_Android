@@ -43,6 +43,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         setKitFilter()
         setKitFloatingBtnListener()
+
+        findNavController().navigate(R.id.action_homeFragment_to_roomSettingTakePhotoFragment)
     }
 
     private fun setTodoAdapter() {
